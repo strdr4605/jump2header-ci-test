@@ -12,10 +12,10 @@ jobs:
         uses: ./.github/actions/fork
         env:
           jump2header_token: ${{ secrets.JUMP2HEADER_TOKEN }}
-      - name: Sleep for 30 seconds
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '30s'
+      # - name: Sleep for 30 seconds
+      #   uses: jakejarvis/wait-action@master
+      #   with:
+      #     time: '30s'
       - name: Update file
         uses: ./.github/actions/update_file
         env:
