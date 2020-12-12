@@ -1,0 +1,6 @@
+name: 'Update file'
+author: 'Dragoș Străinu'
+description: 'Github action for updating a file'
+runs:
+  using: 'node12'
+  main: '../../../update_file/index.js'
