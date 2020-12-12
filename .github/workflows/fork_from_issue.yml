@@ -1,0 +1,11 @@
+on:
+  issues:
+    types: [opened, reopened]
+
+jobs:
+  test:
+    name: 'Test'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: 'echo "payload: ${{ toJson(github.event) }}"'
