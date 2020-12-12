@@ -5,7 +5,7 @@ const octokit = getOctokit(process.env.github_token || "");
 
 const { issue }: WebhookPayload = context.payload;
 
-console.log(JSON.stringify(context.payload));
+// console.log(JSON.stringify(context.payload));
 
 const FORK_REPO_REGEX = /Fork repo: (?<owner>.+)\/(?<repo>.+)/;
 
@@ -18,6 +18,7 @@ const { owner, repo } = regExpExecArray.groups || { owner: "", repo: "" };
 fork(owner, repo);
 
 async function fork(owner: string, repo: string) {
+  console.log(`Start fork of ${owner}/${repo}`);
   if (!owner || !repo) {
     console.log("No owner or repo", owner, repo);
     return;
