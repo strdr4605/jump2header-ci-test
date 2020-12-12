@@ -21,6 +21,7 @@
   "homepage": "https://github.com/strdr4605/issue-branch-action#readme",
   "dependencies": {
     "@actions/github": "^4.0.0",
+    "execa": "^5.0.0",
     "got": "^11.6.2"
   },
   "devDependencies": {
