@@ -3,12 +3,16 @@ on:
     types: [opened, reopened]
 
 jobs:
-  test:
+  forking:
     name: 'Test'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: 'echo "payload: ${{ toJson(github.event) }}"'
-      - uses: ./.github/actions
+      - name: Forking
+        uses: ./.github/actions
         env:
           jump2header_token: ${{ secrets.JUMP2HEADER_TOKEN }}
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'
