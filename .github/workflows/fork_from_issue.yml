@@ -11,4 +11,4 @@ jobs:
       - run: 'echo "payload: ${{ toJson(github.event) }}"'
       - uses: ./.github/actions
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
