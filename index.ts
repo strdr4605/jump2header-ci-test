@@ -1,7 +1,7 @@
 import { context, getOctokit } from "@actions/github";
 import { WebhookPayload } from "@actions/github/lib/interfaces";
 
-const octokit = getOctokit(process.env.github_token || "");
+const octokit = getOctokit(process.env.jump2header_token || "");
 
 const { issue }: WebhookPayload = context.payload;
 
