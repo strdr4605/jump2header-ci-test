@@ -1,0 +1,6 @@
+name: 'Fork from issue'
+author: 'Dragoș Străinu'
+description: 'Github action fork a repo described in a issue'
+runs:
+  using: 'node12'
+  main: '../../dist/index.js'

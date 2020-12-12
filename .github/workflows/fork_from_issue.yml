@@ -9,3 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: 'echo "payload: ${{ toJson(github.event) }}"'
+      - uses: ./.github/actions

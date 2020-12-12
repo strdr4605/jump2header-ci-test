@@ -1,0 +1,29 @@
+{
+  "name": "jump2header-ci",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "ncc build index.ts -o dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strdr4605/issue-branch-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strdr4605/issue-branch-action/issues"
+  },
+  "homepage": "https://github.com/strdr4605/issue-branch-action#readme",
+  "dependencies": {
+    "@actions/github": "^4.0.0",
+    "got": "^11.6.2"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.24.1",
+    "typescript": "^4.0.3"
+  }
+}
