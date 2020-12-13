@@ -2,15 +2,15 @@ module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 4087:
+/***/ 87:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Context = void 0;
-const fs_1 = __webpack_require__(5747);
-const os_1 = __webpack_require__(2087);
+const fs_1 = __webpack_require__(747);
+const os_1 = __webpack_require__(365);
 class Context {
     /**
      * Hydrate the context from the environment
@@ -59,7 +59,7 @@ exports.Context = Context;
 
 /***/ }),
 
-/***/ 5438:
+/***/ 438:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -85,8 +85,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOctokit = exports.context = void 0;
-const Context = __importStar(__webpack_require__(4087));
-const utils_1 = __webpack_require__(3030);
+const Context = __importStar(__webpack_require__(87));
+const utils_1 = __webpack_require__(30);
 exports.context = new Context.Context();
 /**
  * Returns a hydrated octokit ready to use for GitHub Actions
@@ -102,7 +102,7 @@ exports.getOctokit = getOctokit;
 
 /***/ }),
 
-/***/ 7914:
+/***/ 914:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -128,7 +128,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getApiBaseUrl = exports.getProxyAgent = exports.getAuthString = void 0;
-const httpClient = __importStar(__webpack_require__(9925));
+const httpClient = __importStar(__webpack_require__(925));
 function getAuthString(token, options) {
     if (!token && !options.auth) {
         throw new Error('Parameter token or opts.auth is required');
@@ -152,7 +152,7 @@ exports.getApiBaseUrl = getApiBaseUrl;
 
 /***/ }),
 
-/***/ 3030:
+/***/ 30:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -178,12 +178,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOctokitOptions = exports.GitHub = exports.context = void 0;
-const Context = __importStar(__webpack_require__(4087));
-const Utils = __importStar(__webpack_require__(7914));
+const Context = __importStar(__webpack_require__(87));
+const Utils = __importStar(__webpack_require__(914));
 // octokit + plugins
-const core_1 = __webpack_require__(6762);
-const plugin_rest_endpoint_methods_1 = __webpack_require__(3044);
-const plugin_paginate_rest_1 = __webpack_require__(4193);
+const core_1 = __webpack_require__(762);
+const plugin_rest_endpoint_methods_1 = __webpack_require__(44);
+const plugin_paginate_rest_1 = __webpack_require__(193);
 exports.context = new Context.Context();
 const baseUrl = Utils.getApiBaseUrl();
 const defaults = {
@@ -213,15 +213,15 @@ exports.getOctokitOptions = getOctokitOptions;
 
 /***/ }),
 
-/***/ 9925:
+/***/ 925:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const http = __webpack_require__(8605);
-const https = __webpack_require__(7211);
-const pm = __webpack_require__(6443);
+const http = __webpack_require__(605);
+const https = __webpack_require__(211);
+const pm = __webpack_require__(443);
 let tunnel;
 var HttpCodes;
 (function (HttpCodes) {
@@ -640,7 +640,7 @@ class HttpClient {
         if (useProxy) {
             // If using proxy, need tunnel
             if (!tunnel) {
-                tunnel = __webpack_require__(4294);
+                tunnel = __webpack_require__(294);
             }
             const agentOptions = {
                 maxSockets: maxSockets,
@@ -756,7 +756,7 @@ exports.HttpClient = HttpClient;
 
 /***/ }),
 
-/***/ 6443:
+/***/ 443:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -878,7 +878,7 @@ exports.createTokenAuth = createTokenAuth;
 
 /***/ }),
 
-/***/ 6762:
+/***/ 762:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -886,10 +886,10 @@ exports.createTokenAuth = createTokenAuth;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var universalUserAgent = __webpack_require__(5030);
-var beforeAfterHook = __webpack_require__(3682);
-var request = __webpack_require__(6234);
-var graphql = __webpack_require__(8467);
+var universalUserAgent = __webpack_require__(429);
+var beforeAfterHook = __webpack_require__(682);
+var request = __webpack_require__(234);
+var graphql = __webpack_require__(668);
 var authToken = __webpack_require__(334);
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -1060,7 +1060,7 @@ exports.Octokit = Octokit;
 
 /***/ }),
 
-/***/ 9440:
+/***/ 440:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -1068,8 +1068,8 @@ exports.Octokit = Octokit;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var isPlainObject = __webpack_require__(3287);
-var universalUserAgent = __webpack_require__(5030);
+var isPlainObject = __webpack_require__(287);
+var universalUserAgent = __webpack_require__(429);
 
 function lowercaseKeys(object) {
   if (!object) {
@@ -1458,7 +1458,7 @@ exports.endpoint = endpoint;
 
 /***/ }),
 
-/***/ 8467:
+/***/ 668:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -1466,8 +1466,8 @@ exports.endpoint = endpoint;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var request = __webpack_require__(6234);
-var universalUserAgent = __webpack_require__(5030);
+var request = __webpack_require__(234);
+var universalUserAgent = __webpack_require__(429);
 
 const VERSION = "4.5.8";
 
@@ -1574,7 +1574,7 @@ exports.withCustomRequest = withCustomRequest;
 
 /***/ }),
 
-/***/ 4193:
+/***/ 193:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1714,7 +1714,7 @@ exports.paginateRest = paginateRest;
 
 /***/ }),
 
-/***/ 3044:
+/***/ 44:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -2865,8 +2865,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var deprecation = __webpack_require__(8932);
-var once = _interopDefault(__webpack_require__(1223));
+var deprecation = __webpack_require__(932);
+var once = _interopDefault(__webpack_require__(223));
 
 const logOnce = once(deprecation => console.warn(deprecation));
 /**
@@ -2918,7 +2918,7 @@ exports.RequestError = RequestError;
 
 /***/ }),
 
-/***/ 6234:
+/***/ 234:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -2928,9 +2928,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var endpoint = __webpack_require__(9440);
-var universalUserAgent = __webpack_require__(5030);
-var isPlainObject = __webpack_require__(3287);
+var endpoint = __webpack_require__(440);
+var universalUserAgent = __webpack_require__(429);
+var isPlainObject = __webpack_require__(287);
 var nodeFetch = _interopDefault(__webpack_require__(467));
 var requestError = __webpack_require__(537);
 
@@ -3074,12 +3074,190 @@ exports.request = request;
 
 /***/ }),
 
-/***/ 3682:
+/***/ 117:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LINK_OFFSET = exports.SPICIAL_CHARS_REGEXP = exports.MARKDOWN_CODE_BLOCK_REGEXP = exports.MARKDOWN_HEADER_REGEXP = exports.MARKDOWN_ANY_LINK_REGEXP = exports.MARKDOWN_ANCHOR_LINK_REGEXP = exports.WHITE_SPASE_REGEXP = exports.LINK_COMMENT = exports.EMOJIS = void 0;
+exports.EMOJIS = ["⬆", "🔝", "🔙", "🆙", "🔼"];
+exports.LINK_COMMENT = "<!-- Link generated with jump2header -->";
+exports.WHITE_SPASE_REGEXP = /\s/g;
+exports.MARKDOWN_ANCHOR_LINK_REGEXP = new RegExp("\\[.+\\]\\(\\#.+\\)(" + exports.LINK_COMMENT + ")?$");
+exports.MARKDOWN_ANY_LINK_REGEXP = /\[.+\]\(.+\)$/g;
+exports.MARKDOWN_HEADER_REGEXP = /^(?<headerLevel>\#{1,6})\s+/;
+exports.MARKDOWN_CODE_BLOCK_REGEXP = /^\`\`\`/;
+exports.SPICIAL_CHARS_REGEXP = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,./:;<=>?@[\]^`{|}~’]/g;
+exports.LINK_OFFSET = "\n\n";
+
+
+/***/ }),
+
+/***/ 985:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.createNewFileContent = void 0;
+var utils_1 = __webpack_require__(667);
+var constants_1 = __webpack_require__(117);
+function createNewFileContent(fileContent, argv) {
+    var headers = [];
+    var isCodeBlockStarted = false;
+    var fileContentByLine = fileContent.split("\n");
+    fileContentByLine.forEach(function (line, index) {
+        if (utils_1.isCodeBlock(line)) {
+            isCodeBlockStarted = !isCodeBlockStarted;
+        }
+        else if (utils_1.isHeader(line) && !isCodeBlockStarted) {
+            headers.push({
+                index: index,
+                text: line,
+                slug: utils_1.getSlugFromHeader(line),
+                level: utils_1.getHeaderLevel(line),
+            });
+        }
+    });
+    var firstHeaderSlug = headers[0].slug;
+    var linkText = argv.text || constants_1.EMOJIS[argv.emoji - 1];
+    var anchorSlug = argv.slug || firstHeaderSlug;
+    var startHeader = argv.start;
+    var startHeaderIndex;
+    if (startHeader) {
+        startHeaderIndex = headers.findIndex(function (header) {
+            return new RegExp(startHeader, "i").test(header.text);
+        });
+        if (startHeaderIndex === -1) {
+            startHeaderIndex = 1; // Start from second header
+        }
+    }
+    else {
+        startHeaderIndex = 1; // Start from second header
+    }
+    var endHeader = argv.end;
+    var endHeaderIndex;
+    if (endHeader) {
+        endHeaderIndex = headers.findIndex(function (header) {
+            return new RegExp(endHeader, "i").test(header.text);
+        });
+        if (endHeaderIndex === -1) {
+            endHeaderIndex = Infinity;
+        }
+        else {
+            endHeaderIndex++; // To include last header when slicing the array.
+            if ("end" === argv.position) {
+                endHeaderIndex++;
+            }
+        }
+    }
+    else {
+        endHeaderIndex = Infinity;
+    }
+    headers
+        .slice(startHeaderIndex, endHeaderIndex)
+        .filter(function (header) {
+        return !utils_1.isAnchorLinkInText(header.text) &&
+            !utils_1.isAnchorLinkInSection(header.index, argv.position, fileContentByLine) &&
+            header.level <= argv.maxLevel &&
+            header.slug !== argv.slug;
+    })
+        .forEach(function (header, index) {
+        switch (argv.position) {
+            case "header":
+                fileContentByLine[header.index] += "[" + linkText + "](#" + anchorSlug + ")" + (argv.silent ? "" : constants_1.LINK_COMMENT);
+                break;
+            case "start":
+                fileContentByLine[header.index] = "" + fileContentByLine[header.index] + constants_1.LINK_OFFSET + "[" + linkText + "](#" + anchorSlug + ")" + (argv.silent ? "" : constants_1.LINK_COMMENT);
+                break;
+            case "end":
+                if (0 === index) {
+                    break;
+                }
+                fileContentByLine[header.index] = "[" + linkText + "](#" + anchorSlug + ")" + (argv.silent ? "" : constants_1.LINK_COMMENT) + constants_1.LINK_OFFSET + fileContentByLine[header.index];
+                break;
+        }
+    });
+    var newFileContent = fileContentByLine.join("\n");
+    if (!Number.isFinite(endHeaderIndex) && "end" === argv.position) {
+        newFileContent += constants_1.LINK_OFFSET + "[" + linkText + "](#" + anchorSlug + ")" + (argv.silent ? "" : constants_1.LINK_COMMENT) + "\n";
+    }
+    return newFileContent;
+}
+exports.createNewFileContent = createNewFileContent;
+
+
+/***/ }),
+
+/***/ 667:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getFileContent = exports.getSlugFromHeader = exports.isAnchorLinkInSection = exports.isAnchorLinkInText = exports.isCodeBlock = exports.getHeaderLevel = exports.isHeader = void 0;
+var emoji_regex_1 = __importDefault(__webpack_require__(212));
+var fs_1 = __webpack_require__(747);
+var constants_1 = __webpack_require__(117);
+function isHeader(line) {
+    return constants_1.MARKDOWN_HEADER_REGEXP.test(line);
+}
+exports.isHeader = isHeader;
+function getHeaderLevel(line) {
+    var _a;
+    var result = constants_1.MARKDOWN_HEADER_REGEXP.exec(line);
+    if (!result) {
+        return 0;
+    }
+    return ((_a = result.groups) === null || _a === void 0 ? void 0 : _a.headerLevel.length) || 0;
+}
+exports.getHeaderLevel = getHeaderLevel;
+function isCodeBlock(line) {
+    return constants_1.MARKDOWN_CODE_BLOCK_REGEXP.test(line);
+}
+exports.isCodeBlock = isCodeBlock;
+function isAnchorLinkInText(text) {
+    return constants_1.MARKDOWN_ANCHOR_LINK_REGEXP.test(text);
+}
+exports.isAnchorLinkInText = isAnchorLinkInText;
+function isAnchorLinkInSection(headerIndex, linkPosition, fileContentByLine) {
+    var OFFSET = constants_1.LINK_OFFSET.length;
+    return ({
+        header: false,
+        start: constants_1.MARKDOWN_ANCHOR_LINK_REGEXP.test(fileContentByLine[headerIndex + OFFSET]),
+        end: constants_1.MARKDOWN_ANCHOR_LINK_REGEXP.test(fileContentByLine[headerIndex - OFFSET]),
+    }[linkPosition] || false);
+}
+exports.isAnchorLinkInSection = isAnchorLinkInSection;
+function getSlugFromHeader(header) {
+    return header
+        .trim()
+        .replace(constants_1.MARKDOWN_HEADER_REGEXP, "")
+        .replace(constants_1.MARKDOWN_ANY_LINK_REGEXP, "")
+        .replace(constants_1.SPICIAL_CHARS_REGEXP, "")
+        .replace(emoji_regex_1.default(), "")
+        .replace(constants_1.WHITE_SPASE_REGEXP, "-")
+        .toLocaleLowerCase();
+}
+exports.getSlugFromHeader = getSlugFromHeader;
+function getFileContent(filePath) {
+    return fs_1.readFileSync(filePath, { encoding: "utf-8" });
+}
+exports.getFileContent = getFileContent;
+
+
+/***/ }),
+
+/***/ 682:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var register = __webpack_require__(4670)
-var addHook = __webpack_require__(5549)
-var removeHook = __webpack_require__(6819)
+var register = __webpack_require__(670)
+var addHook = __webpack_require__(549)
+var removeHook = __webpack_require__(819)
 
 // bind with array of arguments: https://stackoverflow.com/a/21792913
 var bind = Function.bind
@@ -3138,7 +3316,7 @@ module.exports.Collection = Hook.Collection
 
 /***/ }),
 
-/***/ 5549:
+/***/ 549:
 /***/ ((module) => {
 
 module.exports = addHook
@@ -3191,7 +3369,7 @@ function addHook (state, kind, name, hook) {
 
 /***/ }),
 
-/***/ 4670:
+/***/ 670:
 /***/ ((module) => {
 
 module.exports = register
@@ -3226,7 +3404,7 @@ function register (state, name, method, options) {
 
 /***/ }),
 
-/***/ 6819:
+/***/ 819:
 /***/ ((module) => {
 
 module.exports = removeHook
@@ -3250,364 +3428,7 @@ function removeHook (state, name, method) {
 
 /***/ }),
 
-/***/ 2746:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-const cp = __webpack_require__(3129);
-const parse = __webpack_require__(6855);
-const enoent = __webpack_require__(4101);
-
-function spawn(command, args, options) {
-    // Parse the arguments
-    const parsed = parse(command, args, options);
-
-    // Spawn the child process
-    const spawned = cp.spawn(parsed.command, parsed.args, parsed.options);
-
-    // Hook into child process "exit" event to emit an error if the command
-    // does not exists, see: https://github.com/IndigoUnited/node-cross-spawn/issues/16
-    enoent.hookChildProcess(spawned, parsed);
-
-    return spawned;
-}
-
-function spawnSync(command, args, options) {
-    // Parse the arguments
-    const parsed = parse(command, args, options);
-
-    // Spawn the child process
-    const result = cp.spawnSync(parsed.command, parsed.args, parsed.options);
-
-    // Analyze if the command does not exist, see: https://github.com/IndigoUnited/node-cross-spawn/issues/16
-    result.error = result.error || enoent.verifyENOENTSync(result.status, parsed);
-
-    return result;
-}
-
-module.exports = spawn;
-module.exports.spawn = spawn;
-module.exports.sync = spawnSync;
-
-module.exports._parse = parse;
-module.exports._enoent = enoent;
-
-
-/***/ }),
-
-/***/ 4101:
-/***/ ((module) => {
-
-"use strict";
-
-
-const isWin = process.platform === 'win32';
-
-function notFoundError(original, syscall) {
-    return Object.assign(new Error(`${syscall} ${original.command} ENOENT`), {
-        code: 'ENOENT',
-        errno: 'ENOENT',
-        syscall: `${syscall} ${original.command}`,
-        path: original.command,
-        spawnargs: original.args,
-    });
-}
-
-function hookChildProcess(cp, parsed) {
-    if (!isWin) {
-        return;
-    }
-
-    const originalEmit = cp.emit;
-
-    cp.emit = function (name, arg1) {
-        // If emitting "exit" event and exit code is 1, we need to check if
-        // the command exists and emit an "error" instead
-        // See https://github.com/IndigoUnited/node-cross-spawn/issues/16
-        if (name === 'exit') {
-            const err = verifyENOENT(arg1, parsed, 'spawn');
-
-            if (err) {
-                return originalEmit.call(cp, 'error', err);
-            }
-        }
-
-        return originalEmit.apply(cp, arguments); // eslint-disable-line prefer-rest-params
-    };
-}
-
-function verifyENOENT(status, parsed) {
-    if (isWin && status === 1 && !parsed.file) {
-        return notFoundError(parsed.original, 'spawn');
-    }
-
-    return null;
-}
-
-function verifyENOENTSync(status, parsed) {
-    if (isWin && status === 1 && !parsed.file) {
-        return notFoundError(parsed.original, 'spawnSync');
-    }
-
-    return null;
-}
-
-module.exports = {
-    hookChildProcess,
-    verifyENOENT,
-    verifyENOENTSync,
-    notFoundError,
-};
-
-
-/***/ }),
-
-/***/ 6855:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-const path = __webpack_require__(5622);
-const resolveCommand = __webpack_require__(7274);
-const escape = __webpack_require__(4274);
-const readShebang = __webpack_require__(1252);
-
-const isWin = process.platform === 'win32';
-const isExecutableRegExp = /\.(?:com|exe)$/i;
-const isCmdShimRegExp = /node_modules[\\/].bin[\\/][^\\/]+\.cmd$/i;
-
-function detectShebang(parsed) {
-    parsed.file = resolveCommand(parsed);
-
-    const shebang = parsed.file && readShebang(parsed.file);
-
-    if (shebang) {
-        parsed.args.unshift(parsed.file);
-        parsed.command = shebang;
-
-        return resolveCommand(parsed);
-    }
-
-    return parsed.file;
-}
-
-function parseNonShell(parsed) {
-    if (!isWin) {
-        return parsed;
-    }
-
-    // Detect & add support for shebangs
-    const commandFile = detectShebang(parsed);
-
-    // We don't need a shell if the command filename is an executable
-    const needsShell = !isExecutableRegExp.test(commandFile);
-
-    // If a shell is required, use cmd.exe and take care of escaping everything correctly
-    // Note that `forceShell` is an hidden option used only in tests
-    if (parsed.options.forceShell || needsShell) {
-        // Need to double escape meta chars if the command is a cmd-shim located in `node_modules/.bin/`
-        // The cmd-shim simply calls execute the package bin file with NodeJS, proxying any argument
-        // Because the escape of metachars with ^ gets interpreted when the cmd.exe is first called,
-        // we need to double escape them
-        const needsDoubleEscapeMetaChars = isCmdShimRegExp.test(commandFile);
-
-        // Normalize posix paths into OS compatible paths (e.g.: foo/bar -> foo\bar)
-        // This is necessary otherwise it will always fail with ENOENT in those cases
-        parsed.command = path.normalize(parsed.command);
-
-        // Escape command & arguments
-        parsed.command = escape.command(parsed.command);
-        parsed.args = parsed.args.map((arg) => escape.argument(arg, needsDoubleEscapeMetaChars));
-
-        const shellCommand = [parsed.command].concat(parsed.args).join(' ');
-
-        parsed.args = ['/d', '/s', '/c', `"${shellCommand}"`];
-        parsed.command = process.env.comspec || 'cmd.exe';
-        parsed.options.windowsVerbatimArguments = true; // Tell node's spawn that the arguments are already escaped
-    }
-
-    return parsed;
-}
-
-function parse(command, args, options) {
-    // Normalize arguments, similar to nodejs
-    if (args && !Array.isArray(args)) {
-        options = args;
-        args = null;
-    }
-
-    args = args ? args.slice(0) : []; // Clone array to avoid changing the original
-    options = Object.assign({}, options); // Clone object to avoid changing the original
-
-    // Build our parsed object
-    const parsed = {
-        command,
-        args,
-        options,
-        file: undefined,
-        original: {
-            command,
-            args,
-        },
-    };
-
-    // Delegate further parsing to shell or non-shell
-    return options.shell ? parsed : parseNonShell(parsed);
-}
-
-module.exports = parse;
-
-
-/***/ }),
-
-/***/ 4274:
-/***/ ((module) => {
-
-"use strict";
-
-
-// See http://www.robvanderwoude.com/escapechars.php
-const metaCharsRegExp = /([()\][%!^"`<>&|;, *?])/g;
-
-function escapeCommand(arg) {
-    // Escape meta chars
-    arg = arg.replace(metaCharsRegExp, '^$1');
-
-    return arg;
-}
-
-function escapeArgument(arg, doubleEscapeMetaChars) {
-    // Convert to string
-    arg = `${arg}`;
-
-    // Algorithm below is based on https://qntm.org/cmd
-
-    // Sequence of backslashes followed by a double quote:
-    // double up all the backslashes and escape the double quote
-    arg = arg.replace(/(\\*)"/g, '$1$1\\"');
-
-    // Sequence of backslashes followed by the end of the string
-    // (which will become a double quote later):
-    // double up all the backslashes
-    arg = arg.replace(/(\\*)$/, '$1$1');
-
-    // All other backslashes occur literally
-
-    // Quote the whole thing:
-    arg = `"${arg}"`;
-
-    // Escape meta chars
-    arg = arg.replace(metaCharsRegExp, '^$1');
-
-    // Double escape meta chars if necessary
-    if (doubleEscapeMetaChars) {
-        arg = arg.replace(metaCharsRegExp, '^$1');
-    }
-
-    return arg;
-}
-
-module.exports.command = escapeCommand;
-module.exports.argument = escapeArgument;
-
-
-/***/ }),
-
-/***/ 1252:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-const fs = __webpack_require__(5747);
-const shebangCommand = __webpack_require__(7032);
-
-function readShebang(command) {
-    // Read the first 150 bytes from the file
-    const size = 150;
-    const buffer = Buffer.alloc(size);
-
-    let fd;
-
-    try {
-        fd = fs.openSync(command, 'r');
-        fs.readSync(fd, buffer, 0, size, 0);
-        fs.closeSync(fd);
-    } catch (e) { /* Empty */ }
-
-    // Attempt to extract shebang (null is returned if not a shebang)
-    return shebangCommand(buffer.toString());
-}
-
-module.exports = readShebang;
-
-
-/***/ }),
-
-/***/ 7274:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-const path = __webpack_require__(5622);
-const which = __webpack_require__(4207);
-const getPathKey = __webpack_require__(539);
-
-function resolveCommandAttempt(parsed, withoutPathExt) {
-    const env = parsed.options.env || process.env;
-    const cwd = process.cwd();
-    const hasCustomCwd = parsed.options.cwd != null;
-    // Worker threads do not have process.chdir()
-    const shouldSwitchCwd = hasCustomCwd && process.chdir !== undefined && !process.chdir.disabled;
-
-    // If a custom `cwd` was specified, we need to change the process cwd
-    // because `which` will do stat calls but does not support a custom cwd
-    if (shouldSwitchCwd) {
-        try {
-            process.chdir(parsed.options.cwd);
-        } catch (err) {
-            /* Empty */
-        }
-    }
-
-    let resolved;
-
-    try {
-        resolved = which.sync(parsed.command, {
-            path: env[getPathKey({ env })],
-            pathExt: withoutPathExt ? path.delimiter : undefined,
-        });
-    } catch (e) {
-        /* Empty */
-    } finally {
-        if (shouldSwitchCwd) {
-            process.chdir(cwd);
-        }
-    }
-
-    // If we successfully resolved, ensure that an absolute path is returned
-    // Note that when a custom `cwd` was used, we need to resolve to an absolute path based on it
-    if (resolved) {
-        resolved = path.resolve(hasCustomCwd ? parsed.options.cwd : '', resolved);
-    }
-
-    return resolved;
-}
-
-function resolveCommand(parsed) {
-    return resolveCommandAttempt(parsed) || resolveCommandAttempt(parsed, true);
-}
-
-module.exports = resolveCommand;
-
-
-/***/ }),
-
-/***/ 8932:
+/***/ 932:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -3635,1301 +3456,21 @@ exports.Deprecation = Deprecation;
 
 /***/ }),
 
-/***/ 5447:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-const path = __webpack_require__(5622);
-const childProcess = __webpack_require__(3129);
-const crossSpawn = __webpack_require__(2746);
-const stripFinalNewline = __webpack_require__(8174);
-const npmRunPath = __webpack_require__(502);
-const onetime = __webpack_require__(9082);
-const makeError = __webpack_require__(2187);
-const normalizeStdio = __webpack_require__(166);
-const {spawnedKill, spawnedCancel, setupTimeout, setExitHandler} = __webpack_require__(9819);
-const {handleInput, getSpawnedResult, makeAllStream, validateInputSync} = __webpack_require__(2592);
-const {mergePromise, getSpawnedPromise} = __webpack_require__(7814);
-const {joinCommand, parseCommand} = __webpack_require__(8286);
-
-const DEFAULT_MAX_BUFFER = 1000 * 1000 * 100;
-
-const getEnv = ({env: envOption, extendEnv, preferLocal, localDir, execPath}) => {
-	const env = extendEnv ? {...process.env, ...envOption} : envOption;
-
-	if (preferLocal) {
-		return npmRunPath.env({env, cwd: localDir, execPath});
-	}
-
-	return env;
-};
-
-const handleArguments = (file, args, options = {}) => {
-	const parsed = crossSpawn._parse(file, args, options);
-	file = parsed.command;
-	args = parsed.args;
-	options = parsed.options;
-
-	options = {
-		maxBuffer: DEFAULT_MAX_BUFFER,
-		buffer: true,
-		stripFinalNewline: true,
-		extendEnv: true,
-		preferLocal: false,
-		localDir: options.cwd || process.cwd(),
-		execPath: process.execPath,
-		encoding: 'utf8',
-		reject: true,
-		cleanup: true,
-		all: false,
-		windowsHide: true,
-		...options
-	};
-
-	options.env = getEnv(options);
-
-	options.stdio = normalizeStdio(options);
-
-	if (process.platform === 'win32' && path.basename(file, '.exe') === 'cmd') {
-		// #116
-		args.unshift('/q');
-	}
-
-	return {file, args, options, parsed};
-};
-
-const handleOutput = (options, value, error) => {
-	if (typeof value !== 'string' && !Buffer.isBuffer(value)) {
-		// When `execa.sync()` errors, we normalize it to '' to mimic `execa()`
-		return error === undefined ? undefined : '';
-	}
-
-	if (options.stripFinalNewline) {
-		return stripFinalNewline(value);
-	}
-
-	return value;
-};
-
-const execa = (file, args, options) => {
-	const parsed = handleArguments(file, args, options);
-	const command = joinCommand(file, args);
-
-	let spawned;
-	try {
-		spawned = childProcess.spawn(parsed.file, parsed.args, parsed.options);
-	} catch (error) {
-		// Ensure the returned error is always both a promise and a child process
-		const dummySpawned = new childProcess.ChildProcess();
-		const errorPromise = Promise.reject(makeError({
-			error,
-			stdout: '',
-			stderr: '',
-			all: '',
-			command,
-			parsed,
-			timedOut: false,
-			isCanceled: false,
-			killed: false
-		}));
-		return mergePromise(dummySpawned, errorPromise);
-	}
-
-	const spawnedPromise = getSpawnedPromise(spawned);
-	const timedPromise = setupTimeout(spawned, parsed.options, spawnedPromise);
-	const processDone = setExitHandler(spawned, parsed.options, timedPromise);
-
-	const context = {isCanceled: false};
-
-	spawned.kill = spawnedKill.bind(null, spawned.kill.bind(spawned));
-	spawned.cancel = spawnedCancel.bind(null, spawned, context);
-
-	const handlePromise = async () => {
-		const [{error, exitCode, signal, timedOut}, stdoutResult, stderrResult, allResult] = await getSpawnedResult(spawned, parsed.options, processDone);
-		const stdout = handleOutput(parsed.options, stdoutResult);
-		const stderr = handleOutput(parsed.options, stderrResult);
-		const all = handleOutput(parsed.options, allResult);
-
-		if (error || exitCode !== 0 || signal !== null) {
-			const returnedError = makeError({
-				error,
-				exitCode,
-				signal,
-				stdout,
-				stderr,
-				all,
-				command,
-				parsed,
-				timedOut,
-				isCanceled: context.isCanceled,
-				killed: spawned.killed
-			});
-
-			if (!parsed.options.reject) {
-				return returnedError;
-			}
-
-			throw returnedError;
-		}
-
-		return {
-			command,
-			exitCode: 0,
-			stdout,
-			stderr,
-			all,
-			failed: false,
-			timedOut: false,
-			isCanceled: false,
-			killed: false
-		};
-	};
-
-	const handlePromiseOnce = onetime(handlePromise);
-
-	handleInput(spawned, parsed.options.input);
-
-	spawned.all = makeAllStream(spawned, parsed.options);
-
-	return mergePromise(spawned, handlePromiseOnce);
-};
-
-module.exports = execa;
-
-module.exports.sync = (file, args, options) => {
-	const parsed = handleArguments(file, args, options);
-	const command = joinCommand(file, args);
-
-	validateInputSync(parsed.options);
-
-	let result;
-	try {
-		result = childProcess.spawnSync(parsed.file, parsed.args, parsed.options);
-	} catch (error) {
-		throw makeError({
-			error,
-			stdout: '',
-			stderr: '',
-			all: '',
-			command,
-			parsed,
-			timedOut: false,
-			isCanceled: false,
-			killed: false
-		});
-	}
-
-	const stdout = handleOutput(parsed.options, result.stdout, result.error);
-	const stderr = handleOutput(parsed.options, result.stderr, result.error);
-
-	if (result.error || result.status !== 0 || result.signal !== null) {
-		const error = makeError({
-			stdout,
-			stderr,
-			error: result.error,
-			signal: result.signal,
-			exitCode: result.status,
-			command,
-			parsed,
-			timedOut: result.error && result.error.code === 'ETIMEDOUT',
-			isCanceled: false,
-			killed: result.signal !== null
-		});
-
-		if (!parsed.options.reject) {
-			return error;
-		}
-
-		throw error;
-	}
-
-	return {
-		command,
-		exitCode: 0,
-		stdout,
-		stderr,
-		failed: false,
-		timedOut: false,
-		isCanceled: false,
-		killed: false
-	};
-};
-
-module.exports.command = (command, options) => {
-	const [file, ...args] = parseCommand(command);
-	return execa(file, args, options);
-};
-
-module.exports.commandSync = (command, options) => {
-	const [file, ...args] = parseCommand(command);
-	return execa.sync(file, args, options);
-};
-
-module.exports.node = (scriptPath, args, options = {}) => {
-	if (args && !Array.isArray(args) && typeof args === 'object') {
-		options = args;
-		args = [];
-	}
-
-	const stdio = normalizeStdio.node(options);
-	const defaultExecArgv = process.execArgv.filter(arg => !arg.startsWith('--inspect'));
-
-	const {
-		nodePath = process.execPath,
-		nodeOptions = defaultExecArgv
-	} = options;
-
-	return execa(
-		nodePath,
-		[
-			...nodeOptions,
-			scriptPath,
-			...(Array.isArray(args) ? args : [])
-		],
-		{
-			...options,
-			stdin: undefined,
-			stdout: undefined,
-			stderr: undefined,
-			stdio,
-			shell: false
-		}
-	);
-};
-
-
-/***/ }),
-
-/***/ 8286:
-/***/ ((module) => {
-
-"use strict";
-
-const SPACES_REGEXP = / +/g;
-
-const joinCommand = (file, args = []) => {
-	if (!Array.isArray(args)) {
-		return file;
-	}
-
-	return [file, ...args].join(' ');
-};
-
-// Handle `execa.command()`
-const parseCommand = command => {
-	const tokens = [];
-	for (const token of command.trim().split(SPACES_REGEXP)) {
-		// Allow spaces to be escaped by a backslash if not meant as a delimiter
-		const previousToken = tokens[tokens.length - 1];
-		if (previousToken && previousToken.endsWith('\\')) {
-			// Merge previous token with current one
-			tokens[tokens.length - 1] = `${previousToken.slice(0, -1)} ${token}`;
-		} else {
-			tokens.push(token);
-		}
-	}
-
-	return tokens;
-};
-
-module.exports = {
-	joinCommand,
-	parseCommand
-};
-
-
-/***/ }),
-
-/***/ 2187:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-const {signalsByName} = __webpack_require__(2779);
-
-const getErrorPrefix = ({timedOut, timeout, errorCode, signal, signalDescription, exitCode, isCanceled}) => {
-	if (timedOut) {
-		return `timed out after ${timeout} milliseconds`;
-	}
-
-	if (isCanceled) {
-		return 'was canceled';
-	}
-
-	if (errorCode !== undefined) {
-		return `failed with ${errorCode}`;
-	}
-
-	if (signal !== undefined) {
-		return `was killed with ${signal} (${signalDescription})`;
-	}
-
-	if (exitCode !== undefined) {
-		return `failed with exit code ${exitCode}`;
-	}
-
-	return 'failed';
-};
-
-const makeError = ({
-	stdout,
-	stderr,
-	all,
-	error,
-	signal,
-	exitCode,
-	command,
-	timedOut,
-	isCanceled,
-	killed,
-	parsed: {options: {timeout}}
-}) => {
-	// `signal` and `exitCode` emitted on `spawned.on('exit')` event can be `null`.
-	// We normalize them to `undefined`
-	exitCode = exitCode === null ? undefined : exitCode;
-	signal = signal === null ? undefined : signal;
-	const signalDescription = signal === undefined ? undefined : signalsByName[signal].description;
-
-	const errorCode = error && error.code;
-
-	const prefix = getErrorPrefix({timedOut, timeout, errorCode, signal, signalDescription, exitCode, isCanceled});
-	const execaMessage = `Command ${prefix}: ${command}`;
-	const isError = Object.prototype.toString.call(error) === '[object Error]';
-	const shortMessage = isError ? `${execaMessage}\n${error.message}` : execaMessage;
-	const message = [shortMessage, stderr, stdout].filter(Boolean).join('\n');
-
-	if (isError) {
-		error.originalMessage = error.message;
-		error.message = message;
-	} else {
-		error = new Error(message);
-	}
-
-	error.shortMessage = shortMessage;
-	error.command = command;
-	error.exitCode = exitCode;
-	error.signal = signal;
-	error.signalDescription = signalDescription;
-	error.stdout = stdout;
-	error.stderr = stderr;
-
-	if (all !== undefined) {
-		error.all = all;
-	}
-
-	if ('bufferedData' in error) {
-		delete error.bufferedData;
-	}
-
-	error.failed = true;
-	error.timedOut = Boolean(timedOut);
-	error.isCanceled = isCanceled;
-	error.killed = killed && !timedOut;
-
-	return error;
-};
-
-module.exports = makeError;
-
-
-/***/ }),
-
-/***/ 9819:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-const os = __webpack_require__(2087);
-const onExit = __webpack_require__(4931);
-
-const DEFAULT_FORCE_KILL_TIMEOUT = 1000 * 5;
-
-// Monkey-patches `childProcess.kill()` to add `forceKillAfterTimeout` behavior
-const spawnedKill = (kill, signal = 'SIGTERM', options = {}) => {
-	const killResult = kill(signal);
-	setKillTimeout(kill, signal, options, killResult);
-	return killResult;
-};
-
-const setKillTimeout = (kill, signal, options, killResult) => {
-	if (!shouldForceKill(signal, options, killResult)) {
-		return;
-	}
-
-	const timeout = getForceKillAfterTimeout(options);
-	const t = setTimeout(() => {
-		kill('SIGKILL');
-	}, timeout);
-
-	// Guarded because there's no `.unref()` when `execa` is used in the renderer
-	// process in Electron. This cannot be tested since we don't run tests in
-	// Electron.
-	// istanbul ignore else
-	if (t.unref) {
-		t.unref();
-	}
-};
-
-const shouldForceKill = (signal, {forceKillAfterTimeout}, killResult) => {
-	return isSigterm(signal) && forceKillAfterTimeout !== false && killResult;
-};
-
-const isSigterm = signal => {
-	return signal === os.constants.signals.SIGTERM ||
-		(typeof signal === 'string' && signal.toUpperCase() === 'SIGTERM');
-};
-
-const getForceKillAfterTimeout = ({forceKillAfterTimeout = true}) => {
-	if (forceKillAfterTimeout === true) {
-		return DEFAULT_FORCE_KILL_TIMEOUT;
-	}
-
-	if (!Number.isFinite(forceKillAfterTimeout) || forceKillAfterTimeout < 0) {
-		throw new TypeError(`Expected the \`forceKillAfterTimeout\` option to be a non-negative integer, got \`${forceKillAfterTimeout}\` (${typeof forceKillAfterTimeout})`);
-	}
-
-	return forceKillAfterTimeout;
-};
-
-// `childProcess.cancel()`
-const spawnedCancel = (spawned, context) => {
-	const killResult = spawned.kill();
-
-	if (killResult) {
-		context.isCanceled = true;
-	}
-};
-
-const timeoutKill = (spawned, signal, reject) => {
-	spawned.kill(signal);
-	reject(Object.assign(new Error('Timed out'), {timedOut: true, signal}));
-};
-
-// `timeout` option handling
-const setupTimeout = (spawned, {timeout, killSignal = 'SIGTERM'}, spawnedPromise) => {
-	if (timeout === 0 || timeout === undefined) {
-		return spawnedPromise;
-	}
-
-	if (!Number.isFinite(timeout) || timeout < 0) {
-		throw new TypeError(`Expected the \`timeout\` option to be a non-negative integer, got \`${timeout}\` (${typeof timeout})`);
-	}
-
-	let timeoutId;
-	const timeoutPromise = new Promise((resolve, reject) => {
-		timeoutId = setTimeout(() => {
-			timeoutKill(spawned, killSignal, reject);
-		}, timeout);
-	});
-
-	const safeSpawnedPromise = spawnedPromise.finally(() => {
-		clearTimeout(timeoutId);
-	});
-
-	return Promise.race([timeoutPromise, safeSpawnedPromise]);
-};
-
-// `cleanup` option handling
-const setExitHandler = async (spawned, {cleanup, detached}, timedPromise) => {
-	if (!cleanup || detached) {
-		return timedPromise;
-	}
-
-	const removeExitHandler = onExit(() => {
-		spawned.kill();
-	});
-
-	return timedPromise.finally(() => {
-		removeExitHandler();
-	});
-};
-
-module.exports = {
-	spawnedKill,
-	spawnedCancel,
-	setupTimeout,
-	setExitHandler
-};
-
-
-/***/ }),
-
-/***/ 7814:
+/***/ 212:
 /***/ ((module) => {
 
 "use strict";
 
 
-const nativePromisePrototype = (async () => {})().constructor.prototype;
-const descriptors = ['then', 'catch', 'finally'].map(property => [
-	property,
-	Reflect.getOwnPropertyDescriptor(nativePromisePrototype, property)
-]);
-
-// The return value is a mixin of `childProcess` and `Promise`
-const mergePromise = (spawned, promise) => {
-	for (const [property, descriptor] of descriptors) {
-		// Starting the main `promise` is deferred to avoid consuming streams
-		const value = typeof promise === 'function' ?
-			(...args) => Reflect.apply(descriptor.value, promise(), args) :
-			descriptor.value.bind(promise);
-
-		Reflect.defineProperty(spawned, property, {...descriptor, value});
-	}
-
-	return spawned;
-};
-
-// Use promises instead of `child_process` events
-const getSpawnedPromise = spawned => {
-	return new Promise((resolve, reject) => {
-		spawned.on('exit', (exitCode, signal) => {
-			resolve({exitCode, signal});
-		});
-
-		spawned.on('error', error => {
-			reject(error);
-		});
-
-		if (spawned.stdin) {
-			spawned.stdin.on('error', error => {
-				reject(error);
-			});
-		}
-	});
-};
-
-module.exports = {
-	mergePromise,
-	getSpawnedPromise
-};
-
-
-
-/***/ }),
-
-/***/ 166:
-/***/ ((module) => {
-
-"use strict";
-
-const aliases = ['stdin', 'stdout', 'stderr'];
-
-const hasAlias = options => aliases.some(alias => options[alias] !== undefined);
-
-const normalizeStdio = options => {
-	if (!options) {
-		return;
-	}
-
-	const {stdio} = options;
-
-	if (stdio === undefined) {
-		return aliases.map(alias => options[alias]);
-	}
-
-	if (hasAlias(options)) {
-		throw new Error(`It's not possible to provide \`stdio\` in combination with one of ${aliases.map(alias => `\`${alias}\``).join(', ')}`);
-	}
-
-	if (typeof stdio === 'string') {
-		return stdio;
-	}
-
-	if (!Array.isArray(stdio)) {
-		throw new TypeError(`Expected \`stdio\` to be of type \`string\` or \`Array\`, got \`${typeof stdio}\``);
-	}
-
-	const length = Math.max(stdio.length, aliases.length);
-	return Array.from({length}, (value, index) => stdio[index]);
-};
-
-module.exports = normalizeStdio;
-
-// `ipc` is pushed unless it is already present
-module.exports.node = options => {
-	const stdio = normalizeStdio(options);
-
-	if (stdio === 'ipc') {
-		return 'ipc';
-	}
-
-	if (stdio === undefined || typeof stdio === 'string') {
-		return [stdio, stdio, stdio, 'ipc'];
-	}
-
-	if (stdio.includes('ipc')) {
-		return stdio;
-	}
-
-	return [...stdio, 'ipc'];
+module.exports = function () {
+  // https://mths.be/emoji
+  return /\uD83C\uDFF4\uDB40\uDC67\uDB40\uDC62(?:\uDB40\uDC65\uDB40\uDC6E\uDB40\uDC67|\uDB40\uDC73\uDB40\uDC63\uDB40\uDC74|\uDB40\uDC77\uDB40\uDC6C\uDB40\uDC73)\uDB40\uDC7F|\uD83D\uDC68(?:\uD83C\uDFFC\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68\uD83C\uDFFB|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFF\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFB-\uDFFE])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFE\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFB-\uDFFD])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFD\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFB\uDFFC])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\u200D(?:\u2764\uFE0F\u200D(?:\uD83D\uDC8B\u200D)?\uD83D\uDC68|(?:\uD83D[\uDC68\uDC69])\u200D(?:\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67]))|\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67])|(?:\uD83D[\uDC68\uDC69])\u200D(?:\uD83D[\uDC66\uDC67])|[\u2695\u2696\u2708]\uFE0F|\uD83D[\uDC66\uDC67]|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|(?:\uD83C\uDFFB\u200D[\u2695\u2696\u2708]|\uD83C\uDFFF\u200D[\u2695\u2696\u2708]|\uD83C\uDFFE\u200D[\u2695\u2696\u2708]|\uD83C\uDFFD\u200D[\u2695\u2696\u2708]|\uD83C\uDFFC\u200D[\u2695\u2696\u2708])\uFE0F|\uD83C\uDFFB\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C[\uDFFB-\uDFFF])|(?:\uD83E\uDDD1\uD83C\uDFFB\u200D\uD83E\uDD1D\u200D\uD83E\uDDD1|\uD83D\uDC69\uD83C\uDFFC\u200D\uD83E\uDD1D\u200D\uD83D\uDC69)\uD83C\uDFFB|\uD83E\uDDD1(?:\uD83C\uDFFF\u200D\uD83E\uDD1D\u200D\uD83E\uDDD1(?:\uD83C[\uDFFB-\uDFFF])|\u200D\uD83E\uDD1D\u200D\uD83E\uDDD1)|(?:\uD83E\uDDD1\uD83C\uDFFE\u200D\uD83E\uDD1D\u200D\uD83E\uDDD1|\uD83D\uDC69\uD83C\uDFFF\u200D\uD83E\uDD1D\u200D(?:\uD83D[\uDC68\uDC69]))(?:\uD83C[\uDFFB-\uDFFE])|(?:\uD83E\uDDD1\uD83C\uDFFC\u200D\uD83E\uDD1D\u200D\uD83E\uDDD1|\uD83D\uDC69\uD83C\uDFFD\u200D\uD83E\uDD1D\u200D\uD83D\uDC69)(?:\uD83C[\uDFFB\uDFFC])|\uD83D\uDC69(?:\uD83C\uDFFE\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFB-\uDFFD\uDFFF])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFC\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFB\uDFFD-\uDFFF])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFB\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFC-\uDFFF])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFD\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\u200D(?:\u2764\uFE0F\u200D(?:\uD83D\uDC8B\u200D(?:\uD83D[\uDC68\uDC69])|\uD83D[\uDC68\uDC69])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFF\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD]))|\uD83D\uDC69\u200D\uD83D\uDC69\u200D(?:\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67]))|(?:\uD83E\uDDD1\uD83C\uDFFD\u200D\uD83E\uDD1D\u200D\uD83E\uDDD1|\uD83D\uDC69\uD83C\uDFFE\u200D\uD83E\uDD1D\u200D\uD83D\uDC69)(?:\uD83C[\uDFFB-\uDFFD])|\uD83D\uDC69\u200D\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC69\u200D\uD83D\uDC69\u200D(?:\uD83D[\uDC66\uDC67])|(?:\uD83D\uDC41\uFE0F\u200D\uD83D\uDDE8|\uD83D\uDC69(?:\uD83C\uDFFF\u200D[\u2695\u2696\u2708]|\uD83C\uDFFE\u200D[\u2695\u2696\u2708]|\uD83C\uDFFC\u200D[\u2695\u2696\u2708]|\uD83C\uDFFB\u200D[\u2695\u2696\u2708]|\uD83C\uDFFD\u200D[\u2695\u2696\u2708]|\u200D[\u2695\u2696\u2708])|(?:(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)\uFE0F|\uD83D\uDC6F|\uD83E[\uDD3C\uDDDE\uDDDF])\u200D[\u2640\u2642]|(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2640\u2642]|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3D\uDD3E\uDDB8\uDDB9\uDDCD-\uDDCF\uDDD6-\uDDDD])(?:(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2640\u2642]|\u200D[\u2640\u2642])|\uD83C\uDFF4\u200D\u2620)\uFE0F|\uD83D\uDC69\u200D\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67])|\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08|\uD83D\uDC15\u200D\uD83E\uDDBA|\uD83D\uDC69\u200D\uD83D\uDC66|\uD83D\uDC69\u200D\uD83D\uDC67|\uD83C\uDDFD\uD83C\uDDF0|\uD83C\uDDF4\uD83C\uDDF2|\uD83C\uDDF6\uD83C\uDDE6|[#\*0-9]\uFE0F\u20E3|\uD83C\uDDE7(?:\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEF\uDDF1-\uDDF4\uDDF6-\uDDF9\uDDFB\uDDFC\uDDFE\uDDFF])|\uD83C\uDDF9(?:\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDED\uDDEF-\uDDF4\uDDF7\uDDF9\uDDFB\uDDFC\uDDFF])|\uD83C\uDDEA(?:\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDED\uDDF7-\uDDFA])|\uD83E\uDDD1(?:\uD83C[\uDFFB-\uDFFF])|\uD83C\uDDF7(?:\uD83C[\uDDEA\uDDF4\uDDF8\uDDFA\uDDFC])|\uD83D\uDC69(?:\uD83C[\uDFFB-\uDFFF])|\uD83C\uDDF2(?:\uD83C[\uDDE6\uDDE8-\uDDED\uDDF0-\uDDFF])|\uD83C\uDDE6(?:\uD83C[\uDDE8-\uDDEC\uDDEE\uDDF1\uDDF2\uDDF4\uDDF6-\uDDFA\uDDFC\uDDFD\uDDFF])|\uD83C\uDDF0(?:\uD83C[\uDDEA\uDDEC-\uDDEE\uDDF2\uDDF3\uDDF5\uDDF7\uDDFC\uDDFE\uDDFF])|\uD83C\uDDED(?:\uD83C[\uDDF0\uDDF2\uDDF3\uDDF7\uDDF9\uDDFA])|\uD83C\uDDE9(?:\uD83C[\uDDEA\uDDEC\uDDEF\uDDF0\uDDF2\uDDF4\uDDFF])|\uD83C\uDDFE(?:\uD83C[\uDDEA\uDDF9])|\uD83C\uDDEC(?:\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEE\uDDF1-\uDDF3\uDDF5-\uDDFA\uDDFC\uDDFE])|\uD83C\uDDF8(?:\uD83C[\uDDE6-\uDDEA\uDDEC-\uDDF4\uDDF7-\uDDF9\uDDFB\uDDFD-\uDDFF])|\uD83C\uDDEB(?:\uD83C[\uDDEE-\uDDF0\uDDF2\uDDF4\uDDF7])|\uD83C\uDDF5(?:\uD83C[\uDDE6\uDDEA-\uDDED\uDDF0-\uDDF3\uDDF7-\uDDF9\uDDFC\uDDFE])|\uD83C\uDDFB(?:\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDEE\uDDF3\uDDFA])|\uD83C\uDDF3(?:\uD83C[\uDDE6\uDDE8\uDDEA-\uDDEC\uDDEE\uDDF1\uDDF4\uDDF5\uDDF7\uDDFA\uDDFF])|\uD83C\uDDE8(?:\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDEE\uDDF0-\uDDF5\uDDF7\uDDFA-\uDDFF])|\uD83C\uDDF1(?:\uD83C[\uDDE6-\uDDE8\uDDEE\uDDF0\uDDF7-\uDDFB\uDDFE])|\uD83C\uDDFF(?:\uD83C[\uDDE6\uDDF2\uDDFC])|\uD83C\uDDFC(?:\uD83C[\uDDEB\uDDF8])|\uD83C\uDDFA(?:\uD83C[\uDDE6\uDDEC\uDDF2\uDDF3\uDDF8\uDDFE\uDDFF])|\uD83C\uDDEE(?:\uD83C[\uDDE8-\uDDEA\uDDF1-\uDDF4\uDDF6-\uDDF9])|\uD83C\uDDEF(?:\uD83C[\uDDEA\uDDF2\uDDF4\uDDF5])|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3D\uDD3E\uDDB8\uDDB9\uDDCD-\uDDCF\uDDD6-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])|(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)(?:\uD83C[\uDFFB-\uDFFF])|(?:[\u261D\u270A-\u270D]|\uD83C[\uDF85\uDFC2\uDFC7]|\uD83D[\uDC42\uDC43\uDC46-\uDC50\uDC66\uDC67\uDC6B-\uDC6D\uDC70\uDC72\uDC74-\uDC76\uDC78\uDC7C\uDC83\uDC85\uDCAA\uDD74\uDD7A\uDD90\uDD95\uDD96\uDE4C\uDE4F\uDEC0\uDECC]|\uD83E[\uDD0F\uDD18-\uDD1C\uDD1E\uDD1F\uDD30-\uDD36\uDDB5\uDDB6\uDDBB\uDDD2-\uDDD5])(?:\uD83C[\uDFFB-\uDFFF])|(?:[\u231A\u231B\u23E9-\u23EC\u23F0\u23F3\u25FD\u25FE\u2614\u2615\u2648-\u2653\u267F\u2693\u26A1\u26AA\u26AB\u26BD\u26BE\u26C4\u26C5\u26CE\u26D4\u26EA\u26F2\u26F3\u26F5\u26FA\u26FD\u2705\u270A\u270B\u2728\u274C\u274E\u2753-\u2755\u2757\u2795-\u2797\u27B0\u27BF\u2B1B\u2B1C\u2B50\u2B55]|\uD83C[\uDC04\uDCCF\uDD8E\uDD91-\uDD9A\uDDE6-\uDDFF\uDE01\uDE1A\uDE2F\uDE32-\uDE36\uDE38-\uDE3A\uDE50\uDE51\uDF00-\uDF20\uDF2D-\uDF35\uDF37-\uDF7C\uDF7E-\uDF93\uDFA0-\uDFCA\uDFCF-\uDFD3\uDFE0-\uDFF0\uDFF4\uDFF8-\uDFFF]|\uD83D[\uDC00-\uDC3E\uDC40\uDC42-\uDCFC\uDCFF-\uDD3D\uDD4B-\uDD4E\uDD50-\uDD67\uDD7A\uDD95\uDD96\uDDA4\uDDFB-\uDE4F\uDE80-\uDEC5\uDECC\uDED0-\uDED2\uDED5\uDEEB\uDEEC\uDEF4-\uDEFA\uDFE0-\uDFEB]|\uD83E[\uDD0D-\uDD3A\uDD3C-\uDD45\uDD47-\uDD71\uDD73-\uDD76\uDD7A-\uDDA2\uDDA5-\uDDAA\uDDAE-\uDDCA\uDDCD-\uDDFF\uDE70-\uDE73\uDE78-\uDE7A\uDE80-\uDE82\uDE90-\uDE95])|(?:[#\*0-9\xA9\xAE\u203C\u2049\u2122\u2139\u2194-\u2199\u21A9\u21AA\u231A\u231B\u2328\u23CF\u23E9-\u23F3\u23F8-\u23FA\u24C2\u25AA\u25AB\u25B6\u25C0\u25FB-\u25FE\u2600-\u2604\u260E\u2611\u2614\u2615\u2618\u261D\u2620\u2622\u2623\u2626\u262A\u262E\u262F\u2638-\u263A\u2640\u2642\u2648-\u2653\u265F\u2660\u2663\u2665\u2666\u2668\u267B\u267E\u267F\u2692-\u2697\u2699\u269B\u269C\u26A0\u26A1\u26AA\u26AB\u26B0\u26B1\u26BD\u26BE\u26C4\u26C5\u26C8\u26CE\u26CF\u26D1\u26D3\u26D4\u26E9\u26EA\u26F0-\u26F5\u26F7-\u26FA\u26FD\u2702\u2705\u2708-\u270D\u270F\u2712\u2714\u2716\u271D\u2721\u2728\u2733\u2734\u2744\u2747\u274C\u274E\u2753-\u2755\u2757\u2763\u2764\u2795-\u2797\u27A1\u27B0\u27BF\u2934\u2935\u2B05-\u2B07\u2B1B\u2B1C\u2B50\u2B55\u3030\u303D\u3297\u3299]|\uD83C[\uDC04\uDCCF\uDD70\uDD71\uDD7E\uDD7F\uDD8E\uDD91-\uDD9A\uDDE6-\uDDFF\uDE01\uDE02\uDE1A\uDE2F\uDE32-\uDE3A\uDE50\uDE51\uDF00-\uDF21\uDF24-\uDF93\uDF96\uDF97\uDF99-\uDF9B\uDF9E-\uDFF0\uDFF3-\uDFF5\uDFF7-\uDFFF]|\uD83D[\uDC00-\uDCFD\uDCFF-\uDD3D\uDD49-\uDD4E\uDD50-\uDD67\uDD6F\uDD70\uDD73-\uDD7A\uDD87\uDD8A-\uDD8D\uDD90\uDD95\uDD96\uDDA4\uDDA5\uDDA8\uDDB1\uDDB2\uDDBC\uDDC2-\uDDC4\uDDD1-\uDDD3\uDDDC-\uDDDE\uDDE1\uDDE3\uDDE8\uDDEF\uDDF3\uDDFA-\uDE4F\uDE80-\uDEC5\uDECB-\uDED2\uDED5\uDEE0-\uDEE5\uDEE9\uDEEB\uDEEC\uDEF0\uDEF3-\uDEFA\uDFE0-\uDFEB]|\uD83E[\uDD0D-\uDD3A\uDD3C-\uDD45\uDD47-\uDD71\uDD73-\uDD76\uDD7A-\uDDA2\uDDA5-\uDDAA\uDDAE-\uDDCA\uDDCD-\uDDFF\uDE70-\uDE73\uDE78-\uDE7A\uDE80-\uDE82\uDE90-\uDE95])\uFE0F|(?:[\u261D\u26F9\u270A-\u270D]|\uD83C[\uDF85\uDFC2-\uDFC4\uDFC7\uDFCA-\uDFCC]|\uD83D[\uDC42\uDC43\uDC46-\uDC50\uDC66-\uDC78\uDC7C\uDC81-\uDC83\uDC85-\uDC87\uDC8F\uDC91\uDCAA\uDD74\uDD75\uDD7A\uDD90\uDD95\uDD96\uDE45-\uDE47\uDE4B-\uDE4F\uDEA3\uDEB4-\uDEB6\uDEC0\uDECC]|\uD83E[\uDD0F\uDD18-\uDD1F\uDD26\uDD30-\uDD39\uDD3C-\uDD3E\uDDB5\uDDB6\uDDB8\uDDB9\uDDBB\uDDCD-\uDDCF\uDDD1-\uDDDD])/g;
 };
 
 
 /***/ }),
 
-/***/ 2592:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-const isStream = __webpack_require__(1554);
-const getStream = __webpack_require__(1336);
-const mergeStream = __webpack_require__(2621);
-
-// `input` option
-const handleInput = (spawned, input) => {
-	// Checking for stdin is workaround for https://github.com/nodejs/node/issues/26852
-	// TODO: Remove `|| spawned.stdin === undefined` once we drop support for Node.js <=12.2.0
-	if (input === undefined || spawned.stdin === undefined) {
-		return;
-	}
-
-	if (isStream(input)) {
-		input.pipe(spawned.stdin);
-	} else {
-		spawned.stdin.end(input);
-	}
-};
-
-// `all` interleaves `stdout` and `stderr`
-const makeAllStream = (spawned, {all}) => {
-	if (!all || (!spawned.stdout && !spawned.stderr)) {
-		return;
-	}
-
-	const mixed = mergeStream();
-
-	if (spawned.stdout) {
-		mixed.add(spawned.stdout);
-	}
-
-	if (spawned.stderr) {
-		mixed.add(spawned.stderr);
-	}
-
-	return mixed;
-};
-
-// On failure, `result.stdout|stderr|all` should contain the currently buffered stream
-const getBufferedData = async (stream, streamPromise) => {
-	if (!stream) {
-		return;
-	}
-
-	stream.destroy();
-
-	try {
-		return await streamPromise;
-	} catch (error) {
-		return error.bufferedData;
-	}
-};
-
-const getStreamPromise = (stream, {encoding, buffer, maxBuffer}) => {
-	if (!stream || !buffer) {
-		return;
-	}
-
-	if (encoding) {
-		return getStream(stream, {encoding, maxBuffer});
-	}
-
-	return getStream.buffer(stream, {maxBuffer});
-};
-
-// Retrieve result of child process: exit code, signal, error, streams (stdout/stderr/all)
-const getSpawnedResult = async ({stdout, stderr, all}, {encoding, buffer, maxBuffer}, processDone) => {
-	const stdoutPromise = getStreamPromise(stdout, {encoding, buffer, maxBuffer});
-	const stderrPromise = getStreamPromise(stderr, {encoding, buffer, maxBuffer});
-	const allPromise = getStreamPromise(all, {encoding, buffer, maxBuffer: maxBuffer * 2});
-
-	try {
-		return await Promise.all([processDone, stdoutPromise, stderrPromise, allPromise]);
-	} catch (error) {
-		return Promise.all([
-			{error, signal: error.signal, timedOut: error.timedOut},
-			getBufferedData(stdout, stdoutPromise),
-			getBufferedData(stderr, stderrPromise),
-			getBufferedData(all, allPromise)
-		]);
-	}
-};
-
-const validateInputSync = ({input}) => {
-	if (isStream(input)) {
-		throw new TypeError('The `input` option cannot be a stream in sync mode');
-	}
-};
-
-module.exports = {
-	handleInput,
-	makeAllStream,
-	getSpawnedResult,
-	validateInputSync
-};
-
-
-
-/***/ }),
-
-/***/ 7740:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-const {PassThrough: PassThroughStream} = __webpack_require__(2413);
-
-module.exports = options => {
-	options = {...options};
-
-	const {array} = options;
-	let {encoding} = options;
-	const isBuffer = encoding === 'buffer';
-	let objectMode = false;
-
-	if (array) {
-		objectMode = !(encoding || isBuffer);
-	} else {
-		encoding = encoding || 'utf8';
-	}
-
-	if (isBuffer) {
-		encoding = null;
-	}
-
-	const stream = new PassThroughStream({objectMode});
-
-	if (encoding) {
-		stream.setEncoding(encoding);
-	}
-
-	let length = 0;
-	const chunks = [];
-
-	stream.on('data', chunk => {
-		chunks.push(chunk);
-
-		if (objectMode) {
-			length = chunks.length;
-		} else {
-			length += chunk.length;
-		}
-	});
-
-	stream.getBufferedValue = () => {
-		if (array) {
-			return chunks;
-		}
-
-		return isBuffer ? Buffer.concat(chunks, length) : chunks.join('');
-	};
-
-	stream.getBufferedLength = () => length;
-
-	return stream;
-};
-
-
-/***/ }),
-
-/***/ 1336:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-const {constants: BufferConstants} = __webpack_require__(4293);
-const stream = __webpack_require__(2413);
-const {promisify} = __webpack_require__(1669);
-const bufferStream = __webpack_require__(7740);
-
-const streamPipelinePromisified = promisify(stream.pipeline);
-
-class MaxBufferError extends Error {
-	constructor() {
-		super('maxBuffer exceeded');
-		this.name = 'MaxBufferError';
-	}
-}
-
-async function getStream(inputStream, options) {
-	if (!inputStream) {
-		throw new Error('Expected a stream');
-	}
-
-	options = {
-		maxBuffer: Infinity,
-		...options
-	};
-
-	const {maxBuffer} = options;
-	const stream = bufferStream(options);
-
-	await new Promise((resolve, reject) => {
-		const rejectPromise = error => {
-			// Don't retrieve an oversized buffer.
-			if (error && stream.getBufferedLength() <= BufferConstants.MAX_LENGTH) {
-				error.bufferedData = stream.getBufferedValue();
-			}
-
-			reject(error);
-		};
-
-		(async () => {
-			try {
-				await streamPipelinePromisified(inputStream, stream);
-				resolve();
-			} catch (error) {
-				rejectPromise(error);
-			}
-		})();
-
-		stream.on('data', () => {
-			if (stream.getBufferedLength() > maxBuffer) {
-				rejectPromise(new MaxBufferError());
-			}
-		});
-	});
-
-	return stream.getBufferedValue();
-}
-
-module.exports = getStream;
-module.exports.buffer = (stream, options) => getStream(stream, {...options, encoding: 'buffer'});
-module.exports.array = (stream, options) => getStream(stream, {...options, array: true});
-module.exports.MaxBufferError = MaxBufferError;
-
-
-/***/ }),
-
-/***/ 8213:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", ({value:true}));exports.SIGNALS=void 0;
-
-const SIGNALS=[
-{
-name:"SIGHUP",
-number:1,
-action:"terminate",
-description:"Terminal closed",
-standard:"posix"},
-
-{
-name:"SIGINT",
-number:2,
-action:"terminate",
-description:"User interruption with CTRL-C",
-standard:"ansi"},
-
-{
-name:"SIGQUIT",
-number:3,
-action:"core",
-description:"User interruption with CTRL-\\",
-standard:"posix"},
-
-{
-name:"SIGILL",
-number:4,
-action:"core",
-description:"Invalid machine instruction",
-standard:"ansi"},
-
-{
-name:"SIGTRAP",
-number:5,
-action:"core",
-description:"Debugger breakpoint",
-standard:"posix"},
-
-{
-name:"SIGABRT",
-number:6,
-action:"core",
-description:"Aborted",
-standard:"ansi"},
-
-{
-name:"SIGIOT",
-number:6,
-action:"core",
-description:"Aborted",
-standard:"bsd"},
-
-{
-name:"SIGBUS",
-number:7,
-action:"core",
-description:
-"Bus error due to misaligned, non-existing address or paging error",
-standard:"bsd"},
-
-{
-name:"SIGEMT",
-number:7,
-action:"terminate",
-description:"Command should be emulated but is not implemented",
-standard:"other"},
-
-{
-name:"SIGFPE",
-number:8,
-action:"core",
-description:"Floating point arithmetic error",
-standard:"ansi"},
-
-{
-name:"SIGKILL",
-number:9,
-action:"terminate",
-description:"Forced termination",
-standard:"posix",
-forced:true},
-
-{
-name:"SIGUSR1",
-number:10,
-action:"terminate",
-description:"Application-specific signal",
-standard:"posix"},
-
-{
-name:"SIGSEGV",
-number:11,
-action:"core",
-description:"Segmentation fault",
-standard:"ansi"},
-
-{
-name:"SIGUSR2",
-number:12,
-action:"terminate",
-description:"Application-specific signal",
-standard:"posix"},
-
-{
-name:"SIGPIPE",
-number:13,
-action:"terminate",
-description:"Broken pipe or socket",
-standard:"posix"},
-
-{
-name:"SIGALRM",
-number:14,
-action:"terminate",
-description:"Timeout or timer",
-standard:"posix"},
-
-{
-name:"SIGTERM",
-number:15,
-action:"terminate",
-description:"Termination",
-standard:"ansi"},
-
-{
-name:"SIGSTKFLT",
-number:16,
-action:"terminate",
-description:"Stack is empty or overflowed",
-standard:"other"},
-
-{
-name:"SIGCHLD",
-number:17,
-action:"ignore",
-description:"Child process terminated, paused or unpaused",
-standard:"posix"},
-
-{
-name:"SIGCLD",
-number:17,
-action:"ignore",
-description:"Child process terminated, paused or unpaused",
-standard:"other"},
-
-{
-name:"SIGCONT",
-number:18,
-action:"unpause",
-description:"Unpaused",
-standard:"posix",
-forced:true},
-
-{
-name:"SIGSTOP",
-number:19,
-action:"pause",
-description:"Paused",
-standard:"posix",
-forced:true},
-
-{
-name:"SIGTSTP",
-number:20,
-action:"pause",
-description:"Paused using CTRL-Z or \"suspend\"",
-standard:"posix"},
-
-{
-name:"SIGTTIN",
-number:21,
-action:"pause",
-description:"Background process cannot read terminal input",
-standard:"posix"},
-
-{
-name:"SIGBREAK",
-number:21,
-action:"terminate",
-description:"User interruption with CTRL-BREAK",
-standard:"other"},
-
-{
-name:"SIGTTOU",
-number:22,
-action:"pause",
-description:"Background process cannot write to terminal output",
-standard:"posix"},
-
-{
-name:"SIGURG",
-number:23,
-action:"ignore",
-description:"Socket received out-of-band data",
-standard:"bsd"},
-
-{
-name:"SIGXCPU",
-number:24,
-action:"core",
-description:"Process timed out",
-standard:"bsd"},
-
-{
-name:"SIGXFSZ",
-number:25,
-action:"core",
-description:"File too big",
-standard:"bsd"},
-
-{
-name:"SIGVTALRM",
-number:26,
-action:"terminate",
-description:"Timeout or timer",
-standard:"bsd"},
-
-{
-name:"SIGPROF",
-number:27,
-action:"terminate",
-description:"Timeout or timer",
-standard:"bsd"},
-
-{
-name:"SIGWINCH",
-number:28,
-action:"ignore",
-description:"Terminal window size changed",
-standard:"bsd"},
-
-{
-name:"SIGIO",
-number:29,
-action:"terminate",
-description:"I/O is available",
-standard:"other"},
-
-{
-name:"SIGPOLL",
-number:29,
-action:"terminate",
-description:"Watched event",
-standard:"other"},
-
-{
-name:"SIGINFO",
-number:29,
-action:"ignore",
-description:"Request for process information",
-standard:"other"},
-
-{
-name:"SIGPWR",
-number:30,
-action:"terminate",
-description:"Device running out of power",
-standard:"systemv"},
-
-{
-name:"SIGSYS",
-number:31,
-action:"core",
-description:"Invalid system call",
-standard:"other"},
-
-{
-name:"SIGUNUSED",
-number:31,
-action:"terminate",
-description:"Invalid system call",
-standard:"other"}];exports.SIGNALS=SIGNALS;
-//# sourceMappingURL=core.js.map
-
-/***/ }),
-
-/***/ 2779:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", ({value:true}));exports.signalsByNumber=exports.signalsByName=void 0;var _os=__webpack_require__(2087);
-
-var _signals=__webpack_require__(6435);
-var _realtime=__webpack_require__(5295);
-
-
-
-const getSignalsByName=function(){
-const signals=(0,_signals.getSignals)();
-return signals.reduce(getSignalByName,{});
-};
-
-const getSignalByName=function(
-signalByNameMemo,
-{name,number,description,supported,action,forced,standard})
-{
-return{
-...signalByNameMemo,
-[name]:{name,number,description,supported,action,forced,standard}};
-
-};
-
-const signalsByName=getSignalsByName();exports.signalsByName=signalsByName;
-
-
-
-
-const getSignalsByNumber=function(){
-const signals=(0,_signals.getSignals)();
-const length=_realtime.SIGRTMAX+1;
-const signalsA=Array.from({length},(value,number)=>
-getSignalByNumber(number,signals));
-
-return Object.assign({},...signalsA);
-};
-
-const getSignalByNumber=function(number,signals){
-const signal=findSignalByNumber(number,signals);
-
-if(signal===undefined){
-return{};
-}
-
-const{name,description,supported,action,forced,standard}=signal;
-return{
-[number]:{
-name,
-number,
-description,
-supported,
-action,
-forced,
-standard}};
-
-
-};
-
-
-
-const findSignalByNumber=function(number,signals){
-const signal=signals.find(({name})=>_os.constants.signals[name]===number);
-
-if(signal!==undefined){
-return signal;
-}
-
-return signals.find(signalA=>signalA.number===number);
-};
-
-const signalsByNumber=getSignalsByNumber();exports.signalsByNumber=signalsByNumber;
-//# sourceMappingURL=main.js.map
-
-/***/ }),
-
-/***/ 5295:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", ({value:true}));exports.SIGRTMAX=exports.getRealtimeSignals=void 0;
-const getRealtimeSignals=function(){
-const length=SIGRTMAX-SIGRTMIN+1;
-return Array.from({length},getRealtimeSignal);
-};exports.getRealtimeSignals=getRealtimeSignals;
-
-const getRealtimeSignal=function(value,index){
-return{
-name:`SIGRT${index+1}`,
-number:SIGRTMIN+index,
-action:"terminate",
-description:"Application-specific signal (realtime)",
-standard:"posix"};
-
-};
-
-const SIGRTMIN=34;
-const SIGRTMAX=64;exports.SIGRTMAX=SIGRTMAX;
-//# sourceMappingURL=realtime.js.map
-
-/***/ }),
-
-/***/ 6435:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", ({value:true}));exports.getSignals=void 0;var _os=__webpack_require__(2087);
-
-var _core=__webpack_require__(8213);
-var _realtime=__webpack_require__(5295);
-
-
-
-const getSignals=function(){
-const realtimeSignals=(0,_realtime.getRealtimeSignals)();
-const signals=[..._core.SIGNALS,...realtimeSignals].map(normalizeSignal);
-return signals;
-};exports.getSignals=getSignals;
-
-
-
-
-
-
-
-const normalizeSignal=function({
-name,
-number:defaultNumber,
-description,
-action,
-forced=false,
-standard})
-{
-const{
-signals:{[name]:constantSignal}}=
-_os.constants;
-const supported=constantSignal!==undefined;
-const number=supported?constantSignal:defaultNumber;
-return{name,number,description,supported,action,forced,standard};
-};
-//# sourceMappingURL=signals.js.map
-
-/***/ }),
-
-/***/ 3287:
+/***/ 287:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -4975,274 +3516,6 @@ exports.isPlainObject = isPlainObject;
 
 /***/ }),
 
-/***/ 1554:
-/***/ ((module) => {
-
-"use strict";
-
-
-const isStream = stream =>
-	stream !== null &&
-	typeof stream === 'object' &&
-	typeof stream.pipe === 'function';
-
-isStream.writable = stream =>
-	isStream(stream) &&
-	stream.writable !== false &&
-	typeof stream._write === 'function' &&
-	typeof stream._writableState === 'object';
-
-isStream.readable = stream =>
-	isStream(stream) &&
-	stream.readable !== false &&
-	typeof stream._read === 'function' &&
-	typeof stream._readableState === 'object';
-
-isStream.duplex = stream =>
-	isStream.writable(stream) &&
-	isStream.readable(stream);
-
-isStream.transform = stream =>
-	isStream.duplex(stream) &&
-	typeof stream._transform === 'function' &&
-	typeof stream._transformState === 'object';
-
-module.exports = isStream;
-
-
-/***/ }),
-
-/***/ 7126:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var fs = __webpack_require__(5747)
-var core
-if (process.platform === 'win32' || global.TESTING_WINDOWS) {
-  core = __webpack_require__(2001)
-} else {
-  core = __webpack_require__(9728)
-}
-
-module.exports = isexe
-isexe.sync = sync
-
-function isexe (path, options, cb) {
-  if (typeof options === 'function') {
-    cb = options
-    options = {}
-  }
-
-  if (!cb) {
-    if (typeof Promise !== 'function') {
-      throw new TypeError('callback not provided')
-    }
-
-    return new Promise(function (resolve, reject) {
-      isexe(path, options || {}, function (er, is) {
-        if (er) {
-          reject(er)
-        } else {
-          resolve(is)
-        }
-      })
-    })
-  }
-
-  core(path, options || {}, function (er, is) {
-    // ignore EACCES because that just means we aren't allowed to run it
-    if (er) {
-      if (er.code === 'EACCES' || options && options.ignoreErrors) {
-        er = null
-        is = false
-      }
-    }
-    cb(er, is)
-  })
-}
-
-function sync (path, options) {
-  // my kingdom for a filtered catch
-  try {
-    return core.sync(path, options || {})
-  } catch (er) {
-    if (options && options.ignoreErrors || er.code === 'EACCES') {
-      return false
-    } else {
-      throw er
-    }
-  }
-}
-
-
-/***/ }),
-
-/***/ 9728:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = isexe
-isexe.sync = sync
-
-var fs = __webpack_require__(5747)
-
-function isexe (path, options, cb) {
-  fs.stat(path, function (er, stat) {
-    cb(er, er ? false : checkStat(stat, options))
-  })
-}
-
-function sync (path, options) {
-  return checkStat(fs.statSync(path), options)
-}
-
-function checkStat (stat, options) {
-  return stat.isFile() && checkMode(stat, options)
-}
-
-function checkMode (stat, options) {
-  var mod = stat.mode
-  var uid = stat.uid
-  var gid = stat.gid
-
-  var myUid = options.uid !== undefined ?
-    options.uid : process.getuid && process.getuid()
-  var myGid = options.gid !== undefined ?
-    options.gid : process.getgid && process.getgid()
-
-  var u = parseInt('100', 8)
-  var g = parseInt('010', 8)
-  var o = parseInt('001', 8)
-  var ug = u | g
-
-  var ret = (mod & o) ||
-    (mod & g) && gid === myGid ||
-    (mod & u) && uid === myUid ||
-    (mod & ug) && myUid === 0
-
-  return ret
-}
-
-
-/***/ }),
-
-/***/ 2001:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = isexe
-isexe.sync = sync
-
-var fs = __webpack_require__(5747)
-
-function checkPathExt (path, options) {
-  var pathext = options.pathExt !== undefined ?
-    options.pathExt : process.env.PATHEXT
-
-  if (!pathext) {
-    return true
-  }
-
-  pathext = pathext.split(';')
-  if (pathext.indexOf('') !== -1) {
-    return true
-  }
-  for (var i = 0; i < pathext.length; i++) {
-    var p = pathext[i].toLowerCase()
-    if (p && path.substr(-p.length).toLowerCase() === p) {
-      return true
-    }
-  }
-  return false
-}
-
-function checkStat (stat, path, options) {
-  if (!stat.isSymbolicLink() && !stat.isFile()) {
-    return false
-  }
-  return checkPathExt(path, options)
-}
-
-function isexe (path, options, cb) {
-  fs.stat(path, function (er, stat) {
-    cb(er, er ? false : checkStat(stat, path, options))
-  })
-}
-
-function sync (path, options) {
-  return checkStat(fs.statSync(path), path, options)
-}
-
-
-/***/ }),
-
-/***/ 2621:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-const { PassThrough } = __webpack_require__(2413);
-
-module.exports = function (/*streams...*/) {
-  var sources = []
-  var output  = new PassThrough({objectMode: true})
-
-  output.setMaxListeners(0)
-
-  output.add = add
-  output.isEmpty = isEmpty
-
-  output.on('unpipe', remove)
-
-  Array.prototype.slice.call(arguments).forEach(add)
-
-  return output
-
-  function add (source) {
-    if (Array.isArray(source)) {
-      source.forEach(add)
-      return this
-    }
-
-    sources.push(source);
-    source.once('end', remove.bind(null, source))
-    source.once('error', output.emit.bind(output, 'error'))
-    source.pipe(output, {end: false})
-    return this
-  }
-
-  function isEmpty () {
-    return sources.length == 0;
-  }
-
-  function remove (source) {
-    sources = sources.filter(function (it) { return it !== source })
-    if (!sources.length && output.readable) { output.end() }
-  }
-}
-
-
-/***/ }),
-
-/***/ 6047:
-/***/ ((module) => {
-
-"use strict";
-
-
-const mimicFn = (to, from) => {
-	for (const prop of Reflect.ownKeys(from)) {
-		Object.defineProperty(to, prop, Object.getOwnPropertyDescriptor(from, prop));
-	}
-
-	return to;
-};
-
-module.exports = mimicFn;
-// TODO: Remove this for the next major release
-module.exports.default = mimicFn;
-
-
-/***/ }),
-
 /***/ 467:
 /***/ ((module, exports, __webpack_require__) => {
 
@@ -5253,11 +3526,11 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var Stream = _interopDefault(__webpack_require__(2413));
-var http = _interopDefault(__webpack_require__(8605));
-var Url = _interopDefault(__webpack_require__(8835));
-var https = _interopDefault(__webpack_require__(7211));
-var zlib = _interopDefault(__webpack_require__(8761));
+var Stream = _interopDefault(__webpack_require__(413));
+var http = _interopDefault(__webpack_require__(605));
+var Url = _interopDefault(__webpack_require__(835));
+var https = _interopDefault(__webpack_require__(211));
+var zlib = _interopDefault(__webpack_require__(761));
 
 // Based on https://github.com/tmpvar/jsdom/blob/aa85b2abf07766ff7bf5c1f6daafb3726f2f2db5/lib/jsdom/living/blob.js
 
@@ -5408,7 +3681,7 @@ FetchError.prototype.name = 'FetchError';
 
 let convert;
 try {
-	convert = __webpack_require__(2877).convert;
+	convert = __webpack_require__(877).convert;
 } catch (e) {}
 
 const INTERNALS = Symbol('Body internals');
@@ -6900,65 +5173,10 @@ exports.FetchError = FetchError;
 
 /***/ }),
 
-/***/ 502:
+/***/ 223:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-
-const path = __webpack_require__(5622);
-const pathKey = __webpack_require__(539);
-
-const npmRunPath = options => {
-	options = {
-		cwd: process.cwd(),
-		path: process.env[pathKey()],
-		execPath: process.execPath,
-		...options
-	};
-
-	let previous;
-	let cwdPath = path.resolve(options.cwd);
-	const result = [];
-
-	while (previous !== cwdPath) {
-		result.push(path.join(cwdPath, 'node_modules/.bin'));
-		previous = cwdPath;
-		cwdPath = path.resolve(cwdPath, '..');
-	}
-
-	// Ensure the running `node` binary is used
-	const execPathDir = path.resolve(options.cwd, options.execPath, '..');
-	result.push(execPathDir);
-
-	return result.concat(options.path).join(path.delimiter);
-};
-
-module.exports = npmRunPath;
-// TODO: Remove this for the next major release
-module.exports.default = npmRunPath;
-
-module.exports.env = options => {
-	options = {
-		env: process.env,
-		...options
-	};
-
-	const env = {...options.env};
-	const path = pathKey({env});
-
-	options.path = env[path];
-	env[path] = module.exports(options);
-
-	return env;
-};
-
-
-/***/ }),
-
-/***/ 1223:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var wrappy = __webpack_require__(2940)
+var wrappy = __webpack_require__(940)
 module.exports = wrappy(once)
 module.exports.strict = wrappy(onceStrict)
 
@@ -7004,394 +5222,27 @@ function onceStrict (fn) {
 
 /***/ }),
 
-/***/ 9082:
+/***/ 294:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-
-const mimicFn = __webpack_require__(6047);
-
-const calledFunctions = new WeakMap();
-
-const onetime = (function_, options = {}) => {
-	if (typeof function_ !== 'function') {
-		throw new TypeError('Expected a function');
-	}
-
-	let returnValue;
-	let callCount = 0;
-	const functionName = function_.displayName || function_.name || '<anonymous>';
-
-	const onetime = function (...arguments_) {
-		calledFunctions.set(onetime, ++callCount);
-
-		if (callCount === 1) {
-			returnValue = function_.apply(this, arguments_);
-			function_ = null;
-		} else if (options.throw === true) {
-			throw new Error(`Function \`${functionName}\` can only be called once`);
-		}
-
-		return returnValue;
-	};
-
-	mimicFn(onetime, function_);
-	calledFunctions.set(onetime, callCount);
-
-	return onetime;
-};
-
-module.exports = onetime;
-// TODO: Remove this for the next major release
-module.exports.default = onetime;
-
-module.exports.callCount = function_ => {
-	if (!calledFunctions.has(function_)) {
-		throw new Error(`The given function \`${function_.name}\` is not wrapped by the \`onetime\` package`);
-	}
-
-	return calledFunctions.get(function_);
-};
+module.exports = __webpack_require__(219);
 
 
 /***/ }),
 
-/***/ 539:
-/***/ ((module) => {
-
-"use strict";
-
-
-const pathKey = (options = {}) => {
-	const environment = options.env || process.env;
-	const platform = options.platform || process.platform;
-
-	if (platform !== 'win32') {
-		return 'PATH';
-	}
-
-	return Object.keys(environment).reverse().find(key => key.toUpperCase() === 'PATH') || 'Path';
-};
-
-module.exports = pathKey;
-// TODO: Remove this for the next major release
-module.exports.default = pathKey;
-
-
-/***/ }),
-
-/***/ 7032:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-const shebangRegex = __webpack_require__(2638);
-
-module.exports = (string = '') => {
-	const match = string.match(shebangRegex);
-
-	if (!match) {
-		return null;
-	}
-
-	const [path, argument] = match[0].replace(/#! ?/, '').split(' ');
-	const binary = path.split('/').pop();
-
-	if (binary === 'env') {
-		return argument;
-	}
-
-	return argument ? `${binary} ${argument}` : binary;
-};
-
-
-/***/ }),
-
-/***/ 2638:
-/***/ ((module) => {
-
-"use strict";
-
-module.exports = /^#!(.*)/;
-
-
-/***/ }),
-
-/***/ 4931:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-// Note: since nyc uses this module to output coverage, any lines
-// that are in the direct sync flow of nyc's outputCoverage are
-// ignored, since we can never get coverage for them.
-var assert = __webpack_require__(2357)
-var signals = __webpack_require__(3710)
-var isWin = /^win/i.test(process.platform)
-
-var EE = __webpack_require__(8614)
-/* istanbul ignore if */
-if (typeof EE !== 'function') {
-  EE = EE.EventEmitter
-}
-
-var emitter
-if (process.__signal_exit_emitter__) {
-  emitter = process.__signal_exit_emitter__
-} else {
-  emitter = process.__signal_exit_emitter__ = new EE()
-  emitter.count = 0
-  emitter.emitted = {}
-}
-
-// Because this emitter is a global, we have to check to see if a
-// previous version of this library failed to enable infinite listeners.
-// I know what you're about to say.  But literally everything about
-// signal-exit is a compromise with evil.  Get used to it.
-if (!emitter.infinite) {
-  emitter.setMaxListeners(Infinity)
-  emitter.infinite = true
-}
-
-module.exports = function (cb, opts) {
-  assert.equal(typeof cb, 'function', 'a callback must be provided for exit handler')
-
-  if (loaded === false) {
-    load()
-  }
-
-  var ev = 'exit'
-  if (opts && opts.alwaysLast) {
-    ev = 'afterexit'
-  }
-
-  var remove = function () {
-    emitter.removeListener(ev, cb)
-    if (emitter.listeners('exit').length === 0 &&
-        emitter.listeners('afterexit').length === 0) {
-      unload()
-    }
-  }
-  emitter.on(ev, cb)
-
-  return remove
-}
-
-module.exports.unload = unload
-function unload () {
-  if (!loaded) {
-    return
-  }
-  loaded = false
-
-  signals.forEach(function (sig) {
-    try {
-      process.removeListener(sig, sigListeners[sig])
-    } catch (er) {}
-  })
-  process.emit = originalProcessEmit
-  process.reallyExit = originalProcessReallyExit
-  emitter.count -= 1
-}
-
-function emit (event, code, signal) {
-  if (emitter.emitted[event]) {
-    return
-  }
-  emitter.emitted[event] = true
-  emitter.emit(event, code, signal)
-}
-
-// { <signal>: <listener fn>, ... }
-var sigListeners = {}
-signals.forEach(function (sig) {
-  sigListeners[sig] = function listener () {
-    // If there are no other listeners, an exit is coming!
-    // Simplest way: remove us and then re-send the signal.
-    // We know that this will kill the process, so we can
-    // safely emit now.
-    var listeners = process.listeners(sig)
-    if (listeners.length === emitter.count) {
-      unload()
-      emit('exit', null, sig)
-      /* istanbul ignore next */
-      emit('afterexit', null, sig)
-      /* istanbul ignore next */
-      if (isWin && sig === 'SIGHUP') {
-        // "SIGHUP" throws an `ENOSYS` error on Windows,
-        // so use a supported signal instead
-        sig = 'SIGINT'
-      }
-      process.kill(process.pid, sig)
-    }
-  }
-})
-
-module.exports.signals = function () {
-  return signals
-}
-
-module.exports.load = load
-
-var loaded = false
-
-function load () {
-  if (loaded) {
-    return
-  }
-  loaded = true
-
-  // This is the number of onSignalExit's that are in play.
-  // It's important so that we can count the correct number of
-  // listeners on signals, and don't wait for the other one to
-  // handle it instead of us.
-  emitter.count += 1
-
-  signals = signals.filter(function (sig) {
-    try {
-      process.on(sig, sigListeners[sig])
-      return true
-    } catch (er) {
-      return false
-    }
-  })
-
-  process.emit = processEmit
-  process.reallyExit = processReallyExit
-}
-
-var originalProcessReallyExit = process.reallyExit
-function processReallyExit (code) {
-  process.exitCode = code || 0
-  emit('exit', process.exitCode, null)
-  /* istanbul ignore next */
-  emit('afterexit', process.exitCode, null)
-  /* istanbul ignore next */
-  originalProcessReallyExit.call(process, process.exitCode)
-}
-
-var originalProcessEmit = process.emit
-function processEmit (ev, arg) {
-  if (ev === 'exit') {
-    if (arg !== undefined) {
-      process.exitCode = arg
-    }
-    var ret = originalProcessEmit.apply(this, arguments)
-    emit('exit', process.exitCode, null)
-    /* istanbul ignore next */
-    emit('afterexit', process.exitCode, null)
-    return ret
-  } else {
-    return originalProcessEmit.apply(this, arguments)
-  }
-}
-
-
-/***/ }),
-
-/***/ 3710:
-/***/ ((module) => {
-
-// This is not the set of all possible signals.
-//
-// It IS, however, the set of all signals that trigger
-// an exit on either Linux or BSD systems.  Linux is a
-// superset of the signal names supported on BSD, and
-// the unknown signals just fail to register, so we can
-// catch that easily enough.
-//
-// Don't bother with SIGKILL.  It's uncatchable, which
-// means that we can't fire any callbacks anyway.
-//
-// If a user does happen to register a handler on a non-
-// fatal signal like SIGWINCH or something, and then
-// exit, it'll end up firing `process.emit('exit')`, so
-// the handler will be fired anyway.
-//
-// SIGBUS, SIGFPE, SIGSEGV and SIGILL, when not raised
-// artificially, inherently leave the process in a
-// state from which it is not safe to try and enter JS
-// listeners.
-module.exports = [
-  'SIGABRT',
-  'SIGALRM',
-  'SIGHUP',
-  'SIGINT',
-  'SIGTERM'
-]
-
-if (process.platform !== 'win32') {
-  module.exports.push(
-    'SIGVTALRM',
-    'SIGXCPU',
-    'SIGXFSZ',
-    'SIGUSR2',
-    'SIGTRAP',
-    'SIGSYS',
-    'SIGQUIT',
-    'SIGIOT'
-    // should detect profiler and enable/disable accordingly.
-    // see #21
-    // 'SIGPROF'
-  )
-}
-
-if (process.platform === 'linux') {
-  module.exports.push(
-    'SIGIO',
-    'SIGPOLL',
-    'SIGPWR',
-    'SIGSTKFLT',
-    'SIGUNUSED'
-  )
-}
-
-
-/***/ }),
-
-/***/ 8174:
-/***/ ((module) => {
-
-"use strict";
-
-
-module.exports = input => {
-	const LF = typeof input === 'string' ? '\n' : '\n'.charCodeAt();
-	const CR = typeof input === 'string' ? '\r' : '\r'.charCodeAt();
-
-	if (input[input.length - 1] === LF) {
-		input = input.slice(0, input.length - 1);
-	}
-
-	if (input[input.length - 1] === CR) {
-		input = input.slice(0, input.length - 1);
-	}
-
-	return input;
-};
-
-
-/***/ }),
-
-/***/ 4294:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__(4219);
-
-
-/***/ }),
-
-/***/ 4219:
+/***/ 219:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var net = __webpack_require__(1631);
-var tls = __webpack_require__(4016);
-var http = __webpack_require__(8605);
-var https = __webpack_require__(7211);
-var events = __webpack_require__(8614);
-var assert = __webpack_require__(2357);
-var util = __webpack_require__(1669);
+var net = __webpack_require__(631);
+var tls = __webpack_require__(16);
+var http = __webpack_require__(605);
+var https = __webpack_require__(211);
+var events = __webpack_require__(614);
+var assert = __webpack_require__(357);
+var util = __webpack_require__(669);
 
 
 exports.httpOverHttp = httpOverHttp;
@@ -7651,7 +5502,7 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 5030:
+/***/ 429:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -7677,139 +5528,7 @@ exports.getUserAgent = getUserAgent;
 
 /***/ }),
 
-/***/ 4207:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const isWindows = process.platform === 'win32' ||
-    process.env.OSTYPE === 'cygwin' ||
-    process.env.OSTYPE === 'msys'
-
-const path = __webpack_require__(5622)
-const COLON = isWindows ? ';' : ':'
-const isexe = __webpack_require__(7126)
-
-const getNotFoundError = (cmd) =>
-  Object.assign(new Error(`not found: ${cmd}`), { code: 'ENOENT' })
-
-const getPathInfo = (cmd, opt) => {
-  const colon = opt.colon || COLON
-
-  // If it has a slash, then we don't bother searching the pathenv.
-  // just check the file itself, and that's it.
-  const pathEnv = cmd.match(/\//) || isWindows && cmd.match(/\\/) ? ['']
-    : (
-      [
-        // windows always checks the cwd first
-        ...(isWindows ? [process.cwd()] : []),
-        ...(opt.path || process.env.PATH ||
-          /* istanbul ignore next: very unusual */ '').split(colon),
-      ]
-    )
-  const pathExtExe = isWindows
-    ? opt.pathExt || process.env.PATHEXT || '.EXE;.CMD;.BAT;.COM'
-    : ''
-  const pathExt = isWindows ? pathExtExe.split(colon) : ['']
-
-  if (isWindows) {
-    if (cmd.indexOf('.') !== -1 && pathExt[0] !== '')
-      pathExt.unshift('')
-  }
-
-  return {
-    pathEnv,
-    pathExt,
-    pathExtExe,
-  }
-}
-
-const which = (cmd, opt, cb) => {
-  if (typeof opt === 'function') {
-    cb = opt
-    opt = {}
-  }
-  if (!opt)
-    opt = {}
-
-  const { pathEnv, pathExt, pathExtExe } = getPathInfo(cmd, opt)
-  const found = []
-
-  const step = i => new Promise((resolve, reject) => {
-    if (i === pathEnv.length)
-      return opt.all && found.length ? resolve(found)
-        : reject(getNotFoundError(cmd))
-
-    const ppRaw = pathEnv[i]
-    const pathPart = /^".*"$/.test(ppRaw) ? ppRaw.slice(1, -1) : ppRaw
-
-    const pCmd = path.join(pathPart, cmd)
-    const p = !pathPart && /^\.[\\\/]/.test(cmd) ? cmd.slice(0, 2) + pCmd
-      : pCmd
-
-    resolve(subStep(p, i, 0))
-  })
-
-  const subStep = (p, i, ii) => new Promise((resolve, reject) => {
-    if (ii === pathExt.length)
-      return resolve(step(i + 1))
-    const ext = pathExt[ii]
-    isexe(p + ext, { pathExt: pathExtExe }, (er, is) => {
-      if (!er && is) {
-        if (opt.all)
-          found.push(p + ext)
-        else
-          return resolve(p + ext)
-      }
-      return resolve(subStep(p, i, ii + 1))
-    })
-  })
-
-  return cb ? step(0).then(res => cb(null, res), cb) : step(0)
-}
-
-const whichSync = (cmd, opt) => {
-  opt = opt || {}
-
-  const { pathEnv, pathExt, pathExtExe } = getPathInfo(cmd, opt)
-  const found = []
-
-  for (let i = 0; i < pathEnv.length; i ++) {
-    const ppRaw = pathEnv[i]
-    const pathPart = /^".*"$/.test(ppRaw) ? ppRaw.slice(1, -1) : ppRaw
-
-    const pCmd = path.join(pathPart, cmd)
-    const p = !pathPart && /^\.[\\\/]/.test(cmd) ? cmd.slice(0, 2) + pCmd
-      : pCmd
-
-    for (let j = 0; j < pathExt.length; j ++) {
-      const cur = p + pathExt[j]
-      try {
-        const is = isexe.sync(cur, { pathExt: pathExtExe })
-        if (is) {
-          if (opt.all)
-            found.push(cur)
-          else
-            return cur
-        }
-      } catch (ex) {}
-    }
-  }
-
-  if (opt.all && found.length)
-    return found
-
-  if (opt.nothrow)
-    return null
-
-  throw getNotFoundError(cmd)
-}
-
-module.exports = which
-which.sync = whichSync
-
-
-/***/ }),
-
-/***/ 2940:
+/***/ 940:
 /***/ ((module) => {
 
 // Returns a wrapper function that returns a wrapped callback
@@ -7849,7 +5568,7 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
-/***/ 5690:
+/***/ 690:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -7895,9 +5614,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var fs_1 = __webpack_require__(5747);
-var github_1 = __webpack_require__(5438);
-var execa_1 = __importDefault(__webpack_require__(5447));
+var github_1 = __webpack_require__(438);
+var transform_1 = __webpack_require__(985);
+var yargs_parser_1 = __importDefault(__webpack_require__(909));
 var octokit = github_1.getOctokit(process.env.jump2header_token || "");
 var issue = github_1.context.payload.issue;
 // console.log(JSON.stringify(context.payload));
@@ -7919,47 +5638,58 @@ console.log(jump2headerArgs);
 updateFile(((_a = github_1.context.payload.repository) === null || _a === void 0 ? void 0 : _a.owner.login) || "strdr4605", repo, jump2headerArgs);
 function updateFile(thisOwner, repo, jump2headerArgs) {
     return __awaiter(this, void 0, void 0, function () {
-        var response, fileSha, fileBase64Content, buff, utf8Content, stdout, stdout2, e_1;
+        var options, response, fileSha, fileBase64Content, utf8Content, newUtf8Content, newBase65Content, e_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log("Start update README of " + thisOwner + "/" + repo);
+                    options = yargs_parser_1.default(jump2headerArgs, {
+                        alias: {
+                            file: ["f"],
+                            slug: ["s", "header", "h"],
+                            position: ["p"],
+                            text: ["t"],
+                            maxLevel: ["l", "max-level"],
+                            emoji: ["e"],
+                        },
+                        default: {
+                            file: "README.md",
+                            position: "header",
+                            maxLevel: 6,
+                            emoji: 1,
+                        },
+                        boolean: ["silent"],
+                        number: ["maxLevel", "emoji"],
+                        string: ["slug", "text", "start", "end"],
+                    });
+                    console.log("Start update " + options.file + " of " + thisOwner + "/" + repo);
                     if (!thisOwner || !repo) {
                         console.log("No owner or repo", thisOwner, repo);
                         return [2 /*return*/];
                     }
                     _a.label = 1;
                 case 1:
-                    _a.trys.push([1, 5, , 6]);
-                    return [4 /*yield*/, octokit.request("GET /repos/{owner}/{repo}/contents/README.md", {
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, octokit.request("GET /repos/{owner}/{repo}/contents/" + options.file, {
                             owner: thisOwner,
                             repo: repo,
                         })];
                 case 2:
                     response = _a.sent();
-                    console.log("\n>>>>>>>>>>\n POST /repos/" + thisOwner + "/" + repo + "/content response: " + JSON.stringify(response, undefined, 2) + " \n<<<<<<<<<<\n");
+                    console.log("\n>>>>>>>>>>\n GET /repos/" + thisOwner + "/" + repo + "/content response: " + JSON.stringify(response, undefined, 2) + " \n<<<<<<<<<<\n");
                     fileSha = response.data.sha;
                     fileBase64Content = response.data.content;
-                    console.log({ fileSha: fileSha, fileBase64Content: fileBase64Content });
-                    buff = Buffer.from(fileBase64Content, "base64");
-                    utf8Content = buff.toString("utf-8");
+                    utf8Content = Buffer.from(fileBase64Content, "base64").toString("utf-8");
                     console.log("writing to README.md");
                     console.log(utf8Content);
-                    fs_1.writeFileSync("README.md", utf8Content);
-                    return [4 /*yield*/, execa_1.default("ls")];
+                    newUtf8Content = transform_1.createNewFileContent(utf8Content, options);
+                    newBase65Content = Buffer.from(newUtf8Content, "utf-8").toString("base64");
+                    console.log(JSON.stringify({ options: options, fileSha: fileSha, fileBase64Content: fileBase64Content, newUtf8Content: newUtf8Content, newBase65Content: newBase65Content }, undefined, 2));
+                    return [3 /*break*/, 4];
                 case 3:
-                    stdout = (_a.sent()).stdout;
-                    console.log("\n" + stdout + "\n");
-                    return [4 /*yield*/, execa_1.default("cat README.md")];
-                case 4:
-                    stdout2 = (_a.sent()).stdout;
-                    console.log("\n" + stdout2 + "\n");
-                    return [3 /*break*/, 6];
-                case 5:
                     e_1 = _a.sent();
-                    console.log("\n>>>>>>>>>>\n POST /repos/" + thisOwner + "/" + repo + "/content ERROR: " + JSON.stringify(e_1, undefined, 2) + " \n<<<<<<<<<<\n");
-                    return [3 /*break*/, 6];
-                case 6: return [2 /*return*/];
+                    console.log("\n>>>>>>>>>>\n GET /repos/" + thisOwner + "/" + repo + "/content ERROR: " + JSON.stringify(e_1, undefined, 2) + " \n<<<<<<<<<<\n");
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
@@ -7968,7 +5698,7 @@ function updateFile(thisOwner, repo, jump2headerArgs) {
 
 /***/ }),
 
-/***/ 2877:
+/***/ 877:
 /***/ ((module) => {
 
 module.exports = eval("require")("encoding");
@@ -7976,7 +5706,1051 @@ module.exports = eval("require")("encoding");
 
 /***/ }),
 
-/***/ 2357:
+/***/ 909:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var util = __webpack_require__(669);
+var fs = __webpack_require__(747);
+var path = __webpack_require__(622);
+
+function camelCase(str) {
+    str = str.toLocaleLowerCase();
+    if (str.indexOf('-') === -1 && str.indexOf('_') === -1) {
+        return str;
+    }
+    else {
+        let camelcase = '';
+        let nextChrUpper = false;
+        const leadingHyphens = str.match(/^-+/);
+        for (let i = leadingHyphens ? leadingHyphens[0].length : 0; i < str.length; i++) {
+            let chr = str.charAt(i);
+            if (nextChrUpper) {
+                nextChrUpper = false;
+                chr = chr.toLocaleUpperCase();
+            }
+            if (i !== 0 && (chr === '-' || chr === '_')) {
+                nextChrUpper = true;
+                continue;
+            }
+            else if (chr !== '-' && chr !== '_') {
+                camelcase += chr;
+            }
+        }
+        return camelcase;
+    }
+}
+function decamelize(str, joinString) {
+    const lowercase = str.toLocaleLowerCase();
+    joinString = joinString || '-';
+    let notCamelcase = '';
+    for (let i = 0; i < str.length; i++) {
+        const chrLower = lowercase.charAt(i);
+        const chrString = str.charAt(i);
+        if (chrLower !== chrString && i > 0) {
+            notCamelcase += `${joinString}${lowercase.charAt(i)}`;
+        }
+        else {
+            notCamelcase += chrString;
+        }
+    }
+    return notCamelcase;
+}
+function looksLikeNumber(x) {
+    if (x === null || x === undefined)
+        return false;
+    if (typeof x === 'number')
+        return true;
+    if (/^0x[0-9a-f]+$/i.test(x))
+        return true;
+    if (x.length > 1 && x[0] === '0')
+        return false;
+    return /^[-]?(?:\d+(?:\.\d*)?|\.\d+)(e[-+]?\d+)?$/.test(x);
+}
+
+function tokenizeArgString(argString) {
+    if (Array.isArray(argString)) {
+        return argString.map(e => typeof e !== 'string' ? e + '' : e);
+    }
+    argString = argString.trim();
+    let i = 0;
+    let prevC = null;
+    let c = null;
+    let opening = null;
+    const args = [];
+    for (let ii = 0; ii < argString.length; ii++) {
+        prevC = c;
+        c = argString.charAt(ii);
+        if (c === ' ' && !opening) {
+            if (!(prevC === ' ')) {
+                i++;
+            }
+            continue;
+        }
+        if (c === opening) {
+            opening = null;
+        }
+        else if ((c === "'" || c === '"') && !opening) {
+            opening = c;
+        }
+        if (!args[i])
+            args[i] = '';
+        args[i] += c;
+    }
+    return args;
+}
+
+let mixin;
+class YargsParser {
+    constructor(_mixin) {
+        mixin = _mixin;
+    }
+    parse(argsInput, options) {
+        const opts = Object.assign({
+            alias: undefined,
+            array: undefined,
+            boolean: undefined,
+            config: undefined,
+            configObjects: undefined,
+            configuration: undefined,
+            coerce: undefined,
+            count: undefined,
+            default: undefined,
+            envPrefix: undefined,
+            narg: undefined,
+            normalize: undefined,
+            string: undefined,
+            number: undefined,
+            __: undefined,
+            key: undefined
+        }, options);
+        const args = tokenizeArgString(argsInput);
+        const aliases = combineAliases(Object.assign(Object.create(null), opts.alias));
+        const configuration = Object.assign({
+            'boolean-negation': true,
+            'camel-case-expansion': true,
+            'combine-arrays': false,
+            'dot-notation': true,
+            'duplicate-arguments-array': true,
+            'flatten-duplicate-arrays': true,
+            'greedy-arrays': true,
+            'halt-at-non-option': false,
+            'nargs-eats-options': false,
+            'negation-prefix': 'no-',
+            'parse-numbers': true,
+            'parse-positional-numbers': true,
+            'populate--': false,
+            'set-placeholder-key': false,
+            'short-option-groups': true,
+            'strip-aliased': false,
+            'strip-dashed': false,
+            'unknown-options-as-args': false
+        }, opts.configuration);
+        const defaults = Object.assign(Object.create(null), opts.default);
+        const configObjects = opts.configObjects || [];
+        const envPrefix = opts.envPrefix;
+        const notFlagsOption = configuration['populate--'];
+        const notFlagsArgv = notFlagsOption ? '--' : '_';
+        const newAliases = Object.create(null);
+        const defaulted = Object.create(null);
+        const __ = opts.__ || mixin.format;
+        const flags = {
+            aliases: Object.create(null),
+            arrays: Object.create(null),
+            bools: Object.create(null),
+            strings: Object.create(null),
+            numbers: Object.create(null),
+            counts: Object.create(null),
+            normalize: Object.create(null),
+            configs: Object.create(null),
+            nargs: Object.create(null),
+            coercions: Object.create(null),
+            keys: []
+        };
+        const negative = /^-([0-9]+(\.[0-9]+)?|\.[0-9]+)$/;
+        const negatedBoolean = new RegExp('^--' + configuration['negation-prefix'] + '(.+)');
+        [].concat(opts.array || []).filter(Boolean).forEach(function (opt) {
+            const key = typeof opt === 'object' ? opt.key : opt;
+            const assignment = Object.keys(opt).map(function (key) {
+                const arrayFlagKeys = {
+                    boolean: 'bools',
+                    string: 'strings',
+                    number: 'numbers'
+                };
+                return arrayFlagKeys[key];
+            }).filter(Boolean).pop();
+            if (assignment) {
+                flags[assignment][key] = true;
+            }
+            flags.arrays[key] = true;
+            flags.keys.push(key);
+        });
+        [].concat(opts.boolean || []).filter(Boolean).forEach(function (key) {
+            flags.bools[key] = true;
+            flags.keys.push(key);
+        });
+        [].concat(opts.string || []).filter(Boolean).forEach(function (key) {
+            flags.strings[key] = true;
+            flags.keys.push(key);
+        });
+        [].concat(opts.number || []).filter(Boolean).forEach(function (key) {
+            flags.numbers[key] = true;
+            flags.keys.push(key);
+        });
+        [].concat(opts.count || []).filter(Boolean).forEach(function (key) {
+            flags.counts[key] = true;
+            flags.keys.push(key);
+        });
+        [].concat(opts.normalize || []).filter(Boolean).forEach(function (key) {
+            flags.normalize[key] = true;
+            flags.keys.push(key);
+        });
+        if (typeof opts.narg === 'object') {
+            Object.entries(opts.narg).forEach(([key, value]) => {
+                if (typeof value === 'number') {
+                    flags.nargs[key] = value;
+                    flags.keys.push(key);
+                }
+            });
+        }
+        if (typeof opts.coerce === 'object') {
+            Object.entries(opts.coerce).forEach(([key, value]) => {
+                if (typeof value === 'function') {
+                    flags.coercions[key] = value;
+                    flags.keys.push(key);
+                }
+            });
+        }
+        if (typeof opts.config !== 'undefined') {
+            if (Array.isArray(opts.config) || typeof opts.config === 'string') {
+                [].concat(opts.config).filter(Boolean).forEach(function (key) {
+                    flags.configs[key] = true;
+                });
+            }
+            else if (typeof opts.config === 'object') {
+                Object.entries(opts.config).forEach(([key, value]) => {
+                    if (typeof value === 'boolean' || typeof value === 'function') {
+                        flags.configs[key] = value;
+                    }
+                });
+            }
+        }
+        extendAliases(opts.key, aliases, opts.default, flags.arrays);
+        Object.keys(defaults).forEach(function (key) {
+            (flags.aliases[key] || []).forEach(function (alias) {
+                defaults[alias] = defaults[key];
+            });
+        });
+        let error = null;
+        checkConfiguration();
+        let notFlags = [];
+        const argv = Object.assign(Object.create(null), { _: [] });
+        const argvReturn = {};
+        for (let i = 0; i < args.length; i++) {
+            const arg = args[i];
+            let broken;
+            let key;
+            let letters;
+            let m;
+            let next;
+            let value;
+            if (arg !== '--' && isUnknownOptionAsArg(arg)) {
+                pushPositional(arg);
+            }
+            else if (arg.match(/^--.+=/) || (!configuration['short-option-groups'] && arg.match(/^-.+=/))) {
+                m = arg.match(/^--?([^=]+)=([\s\S]*)$/);
+                if (m !== null && Array.isArray(m) && m.length >= 3) {
+                    if (checkAllAliases(m[1], flags.arrays)) {
+                        i = eatArray(i, m[1], args, m[2]);
+                    }
+                    else if (checkAllAliases(m[1], flags.nargs) !== false) {
+                        i = eatNargs(i, m[1], args, m[2]);
+                    }
+                    else {
+                        setArg(m[1], m[2]);
+                    }
+                }
+            }
+            else if (arg.match(negatedBoolean) && configuration['boolean-negation']) {
+                m = arg.match(negatedBoolean);
+                if (m !== null && Array.isArray(m) && m.length >= 2) {
+                    key = m[1];
+                    setArg(key, checkAllAliases(key, flags.arrays) ? [false] : false);
+                }
+            }
+            else if (arg.match(/^--.+/) || (!configuration['short-option-groups'] && arg.match(/^-[^-]+/))) {
+                m = arg.match(/^--?(.+)/);
+                if (m !== null && Array.isArray(m) && m.length >= 2) {
+                    key = m[1];
+                    if (checkAllAliases(key, flags.arrays)) {
+                        i = eatArray(i, key, args);
+                    }
+                    else if (checkAllAliases(key, flags.nargs) !== false) {
+                        i = eatNargs(i, key, args);
+                    }
+                    else {
+                        next = args[i + 1];
+                        if (next !== undefined && (!next.match(/^-/) ||
+                            next.match(negative)) &&
+                            !checkAllAliases(key, flags.bools) &&
+                            !checkAllAliases(key, flags.counts)) {
+                            setArg(key, next);
+                            i++;
+                        }
+                        else if (/^(true|false)$/.test(next)) {
+                            setArg(key, next);
+                            i++;
+                        }
+                        else {
+                            setArg(key, defaultValue(key));
+                        }
+                    }
+                }
+            }
+            else if (arg.match(/^-.\..+=/)) {
+                m = arg.match(/^-([^=]+)=([\s\S]*)$/);
+                if (m !== null && Array.isArray(m) && m.length >= 3) {
+                    setArg(m[1], m[2]);
+                }
+            }
+            else if (arg.match(/^-.\..+/) && !arg.match(negative)) {
+                next = args[i + 1];
+                m = arg.match(/^-(.\..+)/);
+                if (m !== null && Array.isArray(m) && m.length >= 2) {
+                    key = m[1];
+                    if (next !== undefined && !next.match(/^-/) &&
+                        !checkAllAliases(key, flags.bools) &&
+                        !checkAllAliases(key, flags.counts)) {
+                        setArg(key, next);
+                        i++;
+                    }
+                    else {
+                        setArg(key, defaultValue(key));
+                    }
+                }
+            }
+            else if (arg.match(/^-[^-]+/) && !arg.match(negative)) {
+                letters = arg.slice(1, -1).split('');
+                broken = false;
+                for (let j = 0; j < letters.length; j++) {
+                    next = arg.slice(j + 2);
+                    if (letters[j + 1] && letters[j + 1] === '=') {
+                        value = arg.slice(j + 3);
+                        key = letters[j];
+                        if (checkAllAliases(key, flags.arrays)) {
+                            i = eatArray(i, key, args, value);
+                        }
+                        else if (checkAllAliases(key, flags.nargs) !== false) {
+                            i = eatNargs(i, key, args, value);
+                        }
+                        else {
+                            setArg(key, value);
+                        }
+                        broken = true;
+                        break;
+                    }
+                    if (next === '-') {
+                        setArg(letters[j], next);
+                        continue;
+                    }
+                    if (/[A-Za-z]/.test(letters[j]) &&
+                        /^-?\d+(\.\d*)?(e-?\d+)?$/.test(next) &&
+                        checkAllAliases(next, flags.bools) === false) {
+                        setArg(letters[j], next);
+                        broken = true;
+                        break;
+                    }
+                    if (letters[j + 1] && letters[j + 1].match(/\W/)) {
+                        setArg(letters[j], next);
+                        broken = true;
+                        break;
+                    }
+                    else {
+                        setArg(letters[j], defaultValue(letters[j]));
+                    }
+                }
+                key = arg.slice(-1)[0];
+                if (!broken && key !== '-') {
+                    if (checkAllAliases(key, flags.arrays)) {
+                        i = eatArray(i, key, args);
+                    }
+                    else if (checkAllAliases(key, flags.nargs) !== false) {
+                        i = eatNargs(i, key, args);
+                    }
+                    else {
+                        next = args[i + 1];
+                        if (next !== undefined && (!/^(-|--)[^-]/.test(next) ||
+                            next.match(negative)) &&
+                            !checkAllAliases(key, flags.bools) &&
+                            !checkAllAliases(key, flags.counts)) {
+                            setArg(key, next);
+                            i++;
+                        }
+                        else if (/^(true|false)$/.test(next)) {
+                            setArg(key, next);
+                            i++;
+                        }
+                        else {
+                            setArg(key, defaultValue(key));
+                        }
+                    }
+                }
+            }
+            else if (arg.match(/^-[0-9]$/) &&
+                arg.match(negative) &&
+                checkAllAliases(arg.slice(1), flags.bools)) {
+                key = arg.slice(1);
+                setArg(key, defaultValue(key));
+            }
+            else if (arg === '--') {
+                notFlags = args.slice(i + 1);
+                break;
+            }
+            else if (configuration['halt-at-non-option']) {
+                notFlags = args.slice(i);
+                break;
+            }
+            else {
+                pushPositional(arg);
+            }
+        }
+        applyEnvVars(argv, true);
+        applyEnvVars(argv, false);
+        setConfig(argv);
+        setConfigObjects();
+        applyDefaultsAndAliases(argv, flags.aliases, defaults, true);
+        applyCoercions(argv);
+        if (configuration['set-placeholder-key'])
+            setPlaceholderKeys(argv);
+        Object.keys(flags.counts).forEach(function (key) {
+            if (!hasKey(argv, key.split('.')))
+                setArg(key, 0);
+        });
+        if (notFlagsOption && notFlags.length)
+            argv[notFlagsArgv] = [];
+        notFlags.forEach(function (key) {
+            argv[notFlagsArgv].push(key);
+        });
+        if (configuration['camel-case-expansion'] && configuration['strip-dashed']) {
+            Object.keys(argv).filter(key => key !== '--' && key.includes('-')).forEach(key => {
+                delete argv[key];
+            });
+        }
+        if (configuration['strip-aliased']) {
+            [].concat(...Object.keys(aliases).map(k => aliases[k])).forEach(alias => {
+                if (configuration['camel-case-expansion'] && alias.includes('-')) {
+                    delete argv[alias.split('.').map(prop => camelCase(prop)).join('.')];
+                }
+                delete argv[alias];
+            });
+        }
+        function pushPositional(arg) {
+            const maybeCoercedNumber = maybeCoerceNumber('_', arg);
+            if (typeof maybeCoercedNumber === 'string' || typeof maybeCoercedNumber === 'number') {
+                argv._.push(maybeCoercedNumber);
+            }
+        }
+        function eatNargs(i, key, args, argAfterEqualSign) {
+            let ii;
+            let toEat = checkAllAliases(key, flags.nargs);
+            toEat = typeof toEat !== 'number' || isNaN(toEat) ? 1 : toEat;
+            if (toEat === 0) {
+                if (!isUndefined(argAfterEqualSign)) {
+                    error = Error(__('Argument unexpected for: %s', key));
+                }
+                setArg(key, defaultValue(key));
+                return i;
+            }
+            let available = isUndefined(argAfterEqualSign) ? 0 : 1;
+            if (configuration['nargs-eats-options']) {
+                if (args.length - (i + 1) + available < toEat) {
+                    error = Error(__('Not enough arguments following: %s', key));
+                }
+                available = toEat;
+            }
+            else {
+                for (ii = i + 1; ii < args.length; ii++) {
+                    if (!args[ii].match(/^-[^0-9]/) || args[ii].match(negative) || isUnknownOptionAsArg(args[ii]))
+                        available++;
+                    else
+                        break;
+                }
+                if (available < toEat)
+                    error = Error(__('Not enough arguments following: %s', key));
+            }
+            let consumed = Math.min(available, toEat);
+            if (!isUndefined(argAfterEqualSign) && consumed > 0) {
+                setArg(key, argAfterEqualSign);
+                consumed--;
+            }
+            for (ii = i + 1; ii < (consumed + i + 1); ii++) {
+                setArg(key, args[ii]);
+            }
+            return (i + consumed);
+        }
+        function eatArray(i, key, args, argAfterEqualSign) {
+            let argsToSet = [];
+            let next = argAfterEqualSign || args[i + 1];
+            const nargsCount = checkAllAliases(key, flags.nargs);
+            if (checkAllAliases(key, flags.bools) && !(/^(true|false)$/.test(next))) {
+                argsToSet.push(true);
+            }
+            else if (isUndefined(next) ||
+                (isUndefined(argAfterEqualSign) && /^-/.test(next) && !negative.test(next) && !isUnknownOptionAsArg(next))) {
+                if (defaults[key] !== undefined) {
+                    const defVal = defaults[key];
+                    argsToSet = Array.isArray(defVal) ? defVal : [defVal];
+                }
+            }
+            else {
+                if (!isUndefined(argAfterEqualSign)) {
+                    argsToSet.push(processValue(key, argAfterEqualSign));
+                }
+                for (let ii = i + 1; ii < args.length; ii++) {
+                    if ((!configuration['greedy-arrays'] && argsToSet.length > 0) ||
+                        (nargsCount && typeof nargsCount === 'number' && argsToSet.length >= nargsCount))
+                        break;
+                    next = args[ii];
+                    if (/^-/.test(next) && !negative.test(next) && !isUnknownOptionAsArg(next))
+                        break;
+                    i = ii;
+                    argsToSet.push(processValue(key, next));
+                }
+            }
+            if (typeof nargsCount === 'number' && ((nargsCount && argsToSet.length < nargsCount) ||
+                (isNaN(nargsCount) && argsToSet.length === 0))) {
+                error = Error(__('Not enough arguments following: %s', key));
+            }
+            setArg(key, argsToSet);
+            return i;
+        }
+        function setArg(key, val) {
+            if (/-/.test(key) && configuration['camel-case-expansion']) {
+                const alias = key.split('.').map(function (prop) {
+                    return camelCase(prop);
+                }).join('.');
+                addNewAlias(key, alias);
+            }
+            const value = processValue(key, val);
+            const splitKey = key.split('.');
+            setKey(argv, splitKey, value);
+            if (flags.aliases[key]) {
+                flags.aliases[key].forEach(function (x) {
+                    const keyProperties = x.split('.');
+                    setKey(argv, keyProperties, value);
+                });
+            }
+            if (splitKey.length > 1 && configuration['dot-notation']) {
+                (flags.aliases[splitKey[0]] || []).forEach(function (x) {
+                    let keyProperties = x.split('.');
+                    const a = [].concat(splitKey);
+                    a.shift();
+                    keyProperties = keyProperties.concat(a);
+                    if (!(flags.aliases[key] || []).includes(keyProperties.join('.'))) {
+                        setKey(argv, keyProperties, value);
+                    }
+                });
+            }
+            if (checkAllAliases(key, flags.normalize) && !checkAllAliases(key, flags.arrays)) {
+                const keys = [key].concat(flags.aliases[key] || []);
+                keys.forEach(function (key) {
+                    Object.defineProperty(argvReturn, key, {
+                        enumerable: true,
+                        get() {
+                            return val;
+                        },
+                        set(value) {
+                            val = typeof value === 'string' ? mixin.normalize(value) : value;
+                        }
+                    });
+                });
+            }
+        }
+        function addNewAlias(key, alias) {
+            if (!(flags.aliases[key] && flags.aliases[key].length)) {
+                flags.aliases[key] = [alias];
+                newAliases[alias] = true;
+            }
+            if (!(flags.aliases[alias] && flags.aliases[alias].length)) {
+                addNewAlias(alias, key);
+            }
+        }
+        function processValue(key, val) {
+            if (typeof val === 'string' &&
+                (val[0] === "'" || val[0] === '"') &&
+                val[val.length - 1] === val[0]) {
+                val = val.substring(1, val.length - 1);
+            }
+            if (checkAllAliases(key, flags.bools) || checkAllAliases(key, flags.counts)) {
+                if (typeof val === 'string')
+                    val = val === 'true';
+            }
+            let value = Array.isArray(val)
+                ? val.map(function (v) { return maybeCoerceNumber(key, v); })
+                : maybeCoerceNumber(key, val);
+            if (checkAllAliases(key, flags.counts) && (isUndefined(value) || typeof value === 'boolean')) {
+                value = increment();
+            }
+            if (checkAllAliases(key, flags.normalize) && checkAllAliases(key, flags.arrays)) {
+                if (Array.isArray(val))
+                    value = val.map((val) => { return mixin.normalize(val); });
+                else
+                    value = mixin.normalize(val);
+            }
+            return value;
+        }
+        function maybeCoerceNumber(key, value) {
+            if (!configuration['parse-positional-numbers'] && key === '_')
+                return value;
+            if (!checkAllAliases(key, flags.strings) && !checkAllAliases(key, flags.bools) && !Array.isArray(value)) {
+                const shouldCoerceNumber = looksLikeNumber(value) && configuration['parse-numbers'] && (Number.isSafeInteger(Math.floor(parseFloat(`${value}`))));
+                if (shouldCoerceNumber || (!isUndefined(value) && checkAllAliases(key, flags.numbers))) {
+                    value = Number(value);
+                }
+            }
+            return value;
+        }
+        function setConfig(argv) {
+            const configLookup = Object.create(null);
+            applyDefaultsAndAliases(configLookup, flags.aliases, defaults);
+            Object.keys(flags.configs).forEach(function (configKey) {
+                const configPath = argv[configKey] || configLookup[configKey];
+                if (configPath) {
+                    try {
+                        let config = null;
+                        const resolvedConfigPath = mixin.resolve(mixin.cwd(), configPath);
+                        const resolveConfig = flags.configs[configKey];
+                        if (typeof resolveConfig === 'function') {
+                            try {
+                                config = resolveConfig(resolvedConfigPath);
+                            }
+                            catch (e) {
+                                config = e;
+                            }
+                            if (config instanceof Error) {
+                                error = config;
+                                return;
+                            }
+                        }
+                        else {
+                            config = mixin.require(resolvedConfigPath);
+                        }
+                        setConfigObject(config);
+                    }
+                    catch (ex) {
+                        if (ex.name === 'PermissionDenied')
+                            error = ex;
+                        else if (argv[configKey])
+                            error = Error(__('Invalid JSON config file: %s', configPath));
+                    }
+                }
+            });
+        }
+        function setConfigObject(config, prev) {
+            Object.keys(config).forEach(function (key) {
+                const value = config[key];
+                const fullKey = prev ? prev + '.' + key : key;
+                if (typeof value === 'object' && value !== null && !Array.isArray(value) && configuration['dot-notation']) {
+                    setConfigObject(value, fullKey);
+                }
+                else {
+                    if (!hasKey(argv, fullKey.split('.')) || (checkAllAliases(fullKey, flags.arrays) && configuration['combine-arrays'])) {
+                        setArg(fullKey, value);
+                    }
+                }
+            });
+        }
+        function setConfigObjects() {
+            if (typeof configObjects !== 'undefined') {
+                configObjects.forEach(function (configObject) {
+                    setConfigObject(configObject);
+                });
+            }
+        }
+        function applyEnvVars(argv, configOnly) {
+            if (typeof envPrefix === 'undefined')
+                return;
+            const prefix = typeof envPrefix === 'string' ? envPrefix : '';
+            const env = mixin.env();
+            Object.keys(env).forEach(function (envVar) {
+                if (prefix === '' || envVar.lastIndexOf(prefix, 0) === 0) {
+                    const keys = envVar.split('__').map(function (key, i) {
+                        if (i === 0) {
+                            key = key.substring(prefix.length);
+                        }
+                        return camelCase(key);
+                    });
+                    if (((configOnly && flags.configs[keys.join('.')]) || !configOnly) && !hasKey(argv, keys)) {
+                        setArg(keys.join('.'), env[envVar]);
+                    }
+                }
+            });
+        }
+        function applyCoercions(argv) {
+            let coerce;
+            const applied = new Set();
+            Object.keys(argv).forEach(function (key) {
+                if (!applied.has(key)) {
+                    coerce = checkAllAliases(key, flags.coercions);
+                    if (typeof coerce === 'function') {
+                        try {
+                            const value = maybeCoerceNumber(key, coerce(argv[key]));
+                            ([].concat(flags.aliases[key] || [], key)).forEach(ali => {
+                                applied.add(ali);
+                                argv[ali] = value;
+                            });
+                        }
+                        catch (err) {
+                            error = err;
+                        }
+                    }
+                }
+            });
+        }
+        function setPlaceholderKeys(argv) {
+            flags.keys.forEach((key) => {
+                if (~key.indexOf('.'))
+                    return;
+                if (typeof argv[key] === 'undefined')
+                    argv[key] = undefined;
+            });
+            return argv;
+        }
+        function applyDefaultsAndAliases(obj, aliases, defaults, canLog = false) {
+            Object.keys(defaults).forEach(function (key) {
+                if (!hasKey(obj, key.split('.'))) {
+                    setKey(obj, key.split('.'), defaults[key]);
+                    if (canLog)
+                        defaulted[key] = true;
+                    (aliases[key] || []).forEach(function (x) {
+                        if (hasKey(obj, x.split('.')))
+                            return;
+                        setKey(obj, x.split('.'), defaults[key]);
+                    });
+                }
+            });
+        }
+        function hasKey(obj, keys) {
+            let o = obj;
+            if (!configuration['dot-notation'])
+                keys = [keys.join('.')];
+            keys.slice(0, -1).forEach(function (key) {
+                o = (o[key] || {});
+            });
+            const key = keys[keys.length - 1];
+            if (typeof o !== 'object')
+                return false;
+            else
+                return key in o;
+        }
+        function setKey(obj, keys, value) {
+            let o = obj;
+            if (!configuration['dot-notation'])
+                keys = [keys.join('.')];
+            keys.slice(0, -1).forEach(function (key) {
+                key = sanitizeKey(key);
+                if (typeof o === 'object' && o[key] === undefined) {
+                    o[key] = {};
+                }
+                if (typeof o[key] !== 'object' || Array.isArray(o[key])) {
+                    if (Array.isArray(o[key])) {
+                        o[key].push({});
+                    }
+                    else {
+                        o[key] = [o[key], {}];
+                    }
+                    o = o[key][o[key].length - 1];
+                }
+                else {
+                    o = o[key];
+                }
+            });
+            const key = sanitizeKey(keys[keys.length - 1]);
+            const isTypeArray = checkAllAliases(keys.join('.'), flags.arrays);
+            const isValueArray = Array.isArray(value);
+            let duplicate = configuration['duplicate-arguments-array'];
+            if (!duplicate && checkAllAliases(key, flags.nargs)) {
+                duplicate = true;
+                if ((!isUndefined(o[key]) && flags.nargs[key] === 1) || (Array.isArray(o[key]) && o[key].length === flags.nargs[key])) {
+                    o[key] = undefined;
+                }
+            }
+            if (value === increment()) {
+                o[key] = increment(o[key]);
+            }
+            else if (Array.isArray(o[key])) {
+                if (duplicate && isTypeArray && isValueArray) {
+                    o[key] = configuration['flatten-duplicate-arrays'] ? o[key].concat(value) : (Array.isArray(o[key][0]) ? o[key] : [o[key]]).concat([value]);
+                }
+                else if (!duplicate && Boolean(isTypeArray) === Boolean(isValueArray)) {
+                    o[key] = value;
+                }
+                else {
+                    o[key] = o[key].concat([value]);
+                }
+            }
+            else if (o[key] === undefined && isTypeArray) {
+                o[key] = isValueArray ? value : [value];
+            }
+            else if (duplicate && !(o[key] === undefined ||
+                checkAllAliases(key, flags.counts) ||
+                checkAllAliases(key, flags.bools))) {
+                o[key] = [o[key], value];
+            }
+            else {
+                o[key] = value;
+            }
+        }
+        function extendAliases(...args) {
+            args.forEach(function (obj) {
+                Object.keys(obj || {}).forEach(function (key) {
+                    if (flags.aliases[key])
+                        return;
+                    flags.aliases[key] = [].concat(aliases[key] || []);
+                    flags.aliases[key].concat(key).forEach(function (x) {
+                        if (/-/.test(x) && configuration['camel-case-expansion']) {
+                            const c = camelCase(x);
+                            if (c !== key && flags.aliases[key].indexOf(c) === -1) {
+                                flags.aliases[key].push(c);
+                                newAliases[c] = true;
+                            }
+                        }
+                    });
+                    flags.aliases[key].concat(key).forEach(function (x) {
+                        if (x.length > 1 && /[A-Z]/.test(x) && configuration['camel-case-expansion']) {
+                            const c = decamelize(x, '-');
+                            if (c !== key && flags.aliases[key].indexOf(c) === -1) {
+                                flags.aliases[key].push(c);
+                                newAliases[c] = true;
+                            }
+                        }
+                    });
+                    flags.aliases[key].forEach(function (x) {
+                        flags.aliases[x] = [key].concat(flags.aliases[key].filter(function (y) {
+                            return x !== y;
+                        }));
+                    });
+                });
+            });
+        }
+        function checkAllAliases(key, flag) {
+            const toCheck = [].concat(flags.aliases[key] || [], key);
+            const keys = Object.keys(flag);
+            const setAlias = toCheck.find(key => keys.includes(key));
+            return setAlias ? flag[setAlias] : false;
+        }
+        function hasAnyFlag(key) {
+            const flagsKeys = Object.keys(flags);
+            const toCheck = [].concat(flagsKeys.map(k => flags[k]));
+            return toCheck.some(function (flag) {
+                return Array.isArray(flag) ? flag.includes(key) : flag[key];
+            });
+        }
+        function hasFlagsMatching(arg, ...patterns) {
+            const toCheck = [].concat(...patterns);
+            return toCheck.some(function (pattern) {
+                const match = arg.match(pattern);
+                return match && hasAnyFlag(match[1]);
+            });
+        }
+        function hasAllShortFlags(arg) {
+            if (arg.match(negative) || !arg.match(/^-[^-]+/)) {
+                return false;
+            }
+            let hasAllFlags = true;
+            let next;
+            const letters = arg.slice(1).split('');
+            for (let j = 0; j < letters.length; j++) {
+                next = arg.slice(j + 2);
+                if (!hasAnyFlag(letters[j])) {
+                    hasAllFlags = false;
+                    break;
+                }
+                if ((letters[j + 1] && letters[j + 1] === '=') ||
+                    next === '-' ||
+                    (/[A-Za-z]/.test(letters[j]) && /^-?\d+(\.\d*)?(e-?\d+)?$/.test(next)) ||
+                    (letters[j + 1] && letters[j + 1].match(/\W/))) {
+                    break;
+                }
+            }
+            return hasAllFlags;
+        }
+        function isUnknownOptionAsArg(arg) {
+            return configuration['unknown-options-as-args'] && isUnknownOption(arg);
+        }
+        function isUnknownOption(arg) {
+            if (arg.match(negative)) {
+                return false;
+            }
+            if (hasAllShortFlags(arg)) {
+                return false;
+            }
+            const flagWithEquals = /^-+([^=]+?)=[\s\S]*$/;
+            const normalFlag = /^-+([^=]+?)$/;
+            const flagEndingInHyphen = /^-+([^=]+?)-$/;
+            const flagEndingInDigits = /^-+([^=]+?\d+)$/;
+            const flagEndingInNonWordCharacters = /^-+([^=]+?)\W+.*$/;
+            return !hasFlagsMatching(arg, flagWithEquals, negatedBoolean, normalFlag, flagEndingInHyphen, flagEndingInDigits, flagEndingInNonWordCharacters);
+        }
+        function defaultValue(key) {
+            if (!checkAllAliases(key, flags.bools) &&
+                !checkAllAliases(key, flags.counts) &&
+                `${key}` in defaults) {
+                return defaults[key];
+            }
+            else {
+                return defaultForType(guessType(key));
+            }
+        }
+        function defaultForType(type) {
+            const def = {
+                boolean: true,
+                string: '',
+                number: undefined,
+                array: []
+            };
+            return def[type];
+        }
+        function guessType(key) {
+            let type = 'boolean';
+            if (checkAllAliases(key, flags.strings))
+                type = 'string';
+            else if (checkAllAliases(key, flags.numbers))
+                type = 'number';
+            else if (checkAllAliases(key, flags.bools))
+                type = 'boolean';
+            else if (checkAllAliases(key, flags.arrays))
+                type = 'array';
+            return type;
+        }
+        function isUndefined(num) {
+            return num === undefined;
+        }
+        function checkConfiguration() {
+            Object.keys(flags.counts).find(key => {
+                if (checkAllAliases(key, flags.arrays)) {
+                    error = Error(__('Invalid configuration: %s, opts.count excludes opts.array.', key));
+                    return true;
+                }
+                else if (checkAllAliases(key, flags.nargs)) {
+                    error = Error(__('Invalid configuration: %s, opts.count excludes opts.narg.', key));
+                    return true;
+                }
+                return false;
+            });
+        }
+        return {
+            aliases: Object.assign({}, flags.aliases),
+            argv: Object.assign(argvReturn, argv),
+            configuration: configuration,
+            defaulted: Object.assign({}, defaulted),
+            error: error,
+            newAliases: Object.assign({}, newAliases)
+        };
+    }
+}
+function combineAliases(aliases) {
+    const aliasArrays = [];
+    const combined = Object.create(null);
+    let change = true;
+    Object.keys(aliases).forEach(function (key) {
+        aliasArrays.push([].concat(aliases[key], key));
+    });
+    while (change) {
+        change = false;
+        for (let i = 0; i < aliasArrays.length; i++) {
+            for (let ii = i + 1; ii < aliasArrays.length; ii++) {
+                const intersect = aliasArrays[i].filter(function (v) {
+                    return aliasArrays[ii].indexOf(v) !== -1;
+                });
+                if (intersect.length) {
+                    aliasArrays[i] = aliasArrays[i].concat(aliasArrays[ii]);
+                    aliasArrays.splice(ii, 1);
+                    change = true;
+                    break;
+                }
+            }
+        }
+    }
+    aliasArrays.forEach(function (aliasArray) {
+        aliasArray = aliasArray.filter(function (v, i, self) {
+            return self.indexOf(v) === i;
+        });
+        const lastAlias = aliasArray.pop();
+        if (lastAlias !== undefined && typeof lastAlias === 'string') {
+            combined[lastAlias] = aliasArray;
+        }
+    });
+    return combined;
+}
+function increment(orig) {
+    return orig !== undefined ? orig + 1 : 1;
+}
+function sanitizeKey(key) {
+    if (key === '__proto__')
+        return '___proto___';
+    return key;
+}
+
+const minNodeVersion = (process && process.env && process.env.YARGS_MIN_NODE_VERSION)
+    ? Number(process.env.YARGS_MIN_NODE_VERSION)
+    : 10;
+if (process && process.version) {
+    const major = Number(process.version.match(/v([^.]+)/)[1]);
+    if (major < minNodeVersion) {
+        throw Error(`yargs parser supports a minimum Node.js version of ${minNodeVersion}. Read our version support policy: https://github.com/yargs/yargs-parser#supported-nodejs-versions`);
+    }
+}
+const env = process ? process.env : {};
+const parser = new YargsParser({
+    cwd: process.cwd,
+    env: () => {
+        return env;
+    },
+    format: util.format,
+    normalize: path.normalize,
+    resolve: path.resolve,
+    require: (path) => {
+        if (true) {
+            return __webpack_require__(462)(path);
+        }
+        else {}
+    }
+});
+const yargsParser = function Parser(args, opts) {
+    const result = parser.parse(args.slice(), opts);
+    return result.argv;
+};
+yargsParser.detailed = function (args, opts) {
+    return parser.parse(args.slice(), opts);
+};
+yargsParser.camelCase = camelCase;
+yargsParser.decamelize = decamelize;
+yargsParser.looksLikeNumber = looksLikeNumber;
+
+module.exports = yargsParser;
+
+
+/***/ }),
+
+/***/ 462:
+/***/ ((module) => {
+
+function webpackEmptyContext(req) {
+	var e = new Error("Cannot find module '" + req + "'");
+	e.code = 'MODULE_NOT_FOUND';
+	throw e;
+}
+webpackEmptyContext.keys = () => [];
+webpackEmptyContext.resolve = webpackEmptyContext;
+webpackEmptyContext.id = 462;
+module.exports = webpackEmptyContext;
+
+/***/ }),
+
+/***/ 357:
 /***/ ((module) => {
 
 "use strict";
@@ -7984,23 +6758,7 @@ module.exports = require("assert");
 
 /***/ }),
 
-/***/ 4293:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("buffer");
-
-/***/ }),
-
-/***/ 3129:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("child_process");
-
-/***/ }),
-
-/***/ 8614:
+/***/ 614:
 /***/ ((module) => {
 
 "use strict";
@@ -8008,7 +6766,7 @@ module.exports = require("events");
 
 /***/ }),
 
-/***/ 5747:
+/***/ 747:
 /***/ ((module) => {
 
 "use strict";
@@ -8016,7 +6774,7 @@ module.exports = require("fs");
 
 /***/ }),
 
-/***/ 8605:
+/***/ 605:
 /***/ ((module) => {
 
 "use strict";
@@ -8024,7 +6782,7 @@ module.exports = require("http");
 
 /***/ }),
 
-/***/ 7211:
+/***/ 211:
 /***/ ((module) => {
 
 "use strict";
@@ -8032,7 +6790,7 @@ module.exports = require("https");
 
 /***/ }),
 
-/***/ 1631:
+/***/ 631:
 /***/ ((module) => {
 
 "use strict";
@@ -8040,7 +6798,7 @@ module.exports = require("net");
 
 /***/ }),
 
-/***/ 2087:
+/***/ 365:
 /***/ ((module) => {
 
 "use strict";
@@ -8048,7 +6806,7 @@ module.exports = require("os");
 
 /***/ }),
 
-/***/ 5622:
+/***/ 622:
 /***/ ((module) => {
 
 "use strict";
@@ -8056,7 +6814,7 @@ module.exports = require("path");
 
 /***/ }),
 
-/***/ 2413:
+/***/ 413:
 /***/ ((module) => {
 
 "use strict";
@@ -8064,7 +6822,7 @@ module.exports = require("stream");
 
 /***/ }),
 
-/***/ 4016:
+/***/ 16:
 /***/ ((module) => {
 
 "use strict";
@@ -8072,7 +6830,7 @@ module.exports = require("tls");
 
 /***/ }),
 
-/***/ 8835:
+/***/ 835:
 /***/ ((module) => {
 
 "use strict";
@@ -8080,7 +6838,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 1669:
+/***/ 669:
 /***/ ((module) => {
 
 "use strict";
@@ -8088,7 +6846,7 @@ module.exports = require("util");
 
 /***/ }),
 
-/***/ 8761:
+/***/ 761:
 /***/ ((module) => {
 
 "use strict";
@@ -8128,12 +6886,17 @@ module.exports = require("zlib");
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	__webpack_require__.ab = __dirname + "/";/************************************************************************/
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(5690);
+/******/ 	return __webpack_require__(690);
 /******/ })()
 ;

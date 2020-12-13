@@ -1,7 +1,8 @@
-import { writeFileSync } from "fs";
 import { context, getOctokit } from "@actions/github";
 import { WebhookPayload } from "@actions/github/lib/interfaces";
-import execa from "execa";
+import { createNewFileContent } from "@strdr4605/jump2header/lib/transform";
+import { CliArgv } from "@strdr4605/jump2header/lib/types";
+import yargsParser from "yargs-parser";
 
 const octokit = getOctokit(process.env.jump2header_token || "");
 
@@ -45,7 +46,27 @@ async function updateFile(
   repo: string,
   jump2headerArgs: string
 ) {
-  console.log(`Start update README of ${thisOwner}/${repo}`);
+  const options = (yargsParser(jump2headerArgs, {
+    alias: {
+      file: ["f"],
+      slug: ["s", "header", "h"],
+      position: ["p"],
+      text: ["t"],
+      maxLevel: ["l", "max-level"],
+      emoji: ["e"],
+    },
+    default: {
+      file: "README.md",
+      position: "header",
+      maxLevel: 6,
+      emoji: 1,
+    },
+    boolean: ["silent"],
+    number: ["maxLevel", "emoji"],
+    string: ["slug", "text", "start", "end"],
+  }) as unknown) as CliArgv;
+
+  console.log(`Start update ${options.file} of ${thisOwner}/${repo}`);
   if (!thisOwner || !repo) {
     console.log("No owner or repo", thisOwner, repo);
     return;
@@ -53,7 +74,7 @@ async function updateFile(
 
   try {
     const response = await octokit.request(
-      "GET /repos/{owner}/{repo}/contents/README.md",
+      `GET /repos/{owner}/{repo}/contents/${options.file}`,
       {
         owner: thisOwner,
         repo,
@@ -61,7 +82,7 @@ async function updateFile(
     );
 
     console.log(
-      `\n>>>>>>>>>>\n POST /repos/${thisOwner}/${repo}/content response: ${JSON.stringify(
+      `\n>>>>>>>>>>\n GET /repos/${thisOwner}/${repo}/content response: ${JSON.stringify(
         response,
         undefined,
         2
@@ -71,28 +92,21 @@ async function updateFile(
     const fileSha = response.data.sha;
     const fileBase64Content = response.data.content;
 
-    console.log({ fileSha, fileBase64Content });
-
-    const buff = Buffer.from(fileBase64Content, "base64");
-
-    const utf8Content = buff.toString("utf-8");
+    const utf8Content = Buffer.from(fileBase64Content, "base64").toString("utf-8");
 
     console.log("writing to README.md");
 
     console.log(utf8Content);
 
-    writeFileSync("README.md", utf8Content);
+    const newUtf8Content = createNewFileContent(utf8Content, options);
 
-    const { stdout } = await execa("ls");
+    const newBase65Content = Buffer.from(newUtf8Content, "utf-8").toString("base64");
 
-    console.log(`\n${stdout}\n`);
+    console.log(JSON.stringify({ options, fileSha, fileBase64Content, newUtf8Content, newBase65Content }, undefined, 2));
 
-    const { stdout: stdout2 } = await execa("cat README.md");
-
-    console.log(`\n${stdout2}\n`);
   } catch (e) {
     console.log(
-      `\n>>>>>>>>>>\n POST /repos/${thisOwner}/${repo}/content ERROR: ${JSON.stringify(
+      `\n>>>>>>>>>>\n GET /repos/${thisOwner}/${repo}/content ERROR: ${JSON.stringify(
         e,
         undefined,
         2

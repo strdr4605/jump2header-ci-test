@@ -21,10 +21,11 @@
   "homepage": "https://github.com/strdr4605/issue-branch-action#readme",
   "dependencies": {
     "@actions/github": "^4.0.0",
-    "execa": "^5.0.0",
-    "got": "^11.6.2"
+    "@strdr4605/jump2header": "^1.3.2",
+    "yargs-parser": "^20.2.4"
   },
   "devDependencies": {
+    "@types/yargs-parser": "^15.0.0",
     "@vercel/ncc": "^0.24.1",
     "husky": "^4.3.5",
     "typescript": "^4.0.3"
