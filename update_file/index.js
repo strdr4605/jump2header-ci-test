@@ -5621,6 +5621,7 @@ var octokit = github_1.getOctokit(process.env.jump2header_token || "");
 var issue = github_1.context.payload.issue;
 // console.log(JSON.stringify(context.payload));
 var FORK_REPO_REGEX = /Fork repo: (?<owner>.+)\/(?<repo>.+)/;
+var JUMP2HEADER_BRANCH = "jump2header";
 var repoRegExpExecArray = FORK_REPO_REGEX.exec((issue === null || issue === void 0 ? void 0 : issue.body) || "") ||
     { groups: {} };
 var _b = repoRegExpExecArray.groups || {
@@ -5650,23 +5651,26 @@ function updateFile(thisOwner, repo, jump2headerArgs) {
                     }
                     _b.label = 1;
                 case 1:
-                    _b.trys.push([1, 3, , 4]);
+                    _b.trys.push([1, 4, , 5]);
                     return [4 /*yield*/, getFileShaAndContent(thisOwner, repo, options.file)];
                 case 2:
                     _a = _b.sent(), fileSha = _a.fileSha, fileBase64Content = _a.fileBase64Content;
                     newBase65Content = createNewBase65Content(fileBase64Content, options);
+                    return [4 /*yield*/, updateFileContent(thisOwner, repo, options.file, fileSha, fileBase64Content)];
+                case 3:
+                    _b.sent();
                     console.log(JSON.stringify({
                         options: options,
                         fileSha: fileSha,
                         fileBase64Content: fileBase64Content,
                         newBase65Content: newBase65Content,
                     }, undefined, 2));
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [3 /*break*/, 5];
+                case 4:
                     e_1 = _b.sent();
                     console.log("\n>>>>>>>>>>\n GET /repos/" + thisOwner + "/" + repo + "/content ERROR: " + JSON.stringify(e_1, undefined, 2) + " \n<<<<<<<<<<\n");
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
             }
         });
     });
@@ -5725,6 +5729,31 @@ function getFileShaAndContent(owner, repo, file) {
             }
         });
     });
+}
+function updateFileContent(owner, repo, file, sha, content) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
+                        owner: owner,
+                        repo: repo,
+                        path: file,
+                        message: generateCommitMessage(),
+                        content: content,
+                        sha: sha,
+                        branch: JUMP2HEADER_BRANCH,
+                    })];
+                case 1:
+                    response = _a.sent();
+                    console.log("\n>>>>>>>>>>\n PUT /repos/" + owner + "/" + repo + "/content response: " + JSON.stringify(response, undefined, 2) + " \n<<<<<<<<<<\n");
+                    return [2 /*return*/, response];
+            }
+        });
+    });
+}
+function generateCommitMessage() {
+    return "docs: add links to top with jump2header";
 }
 
 

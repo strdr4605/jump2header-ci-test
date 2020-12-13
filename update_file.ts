@@ -11,6 +11,7 @@ const { issue }: WebhookPayload = context.payload;
 // console.log(JSON.stringify(context.payload));
 
 const FORK_REPO_REGEX = /Fork repo: (?<owner>.+)\/(?<repo>.+)/;
+const JUMP2HEADER_BRANCH = "jump2header";
 
 const repoRegExpExecArray: RegExpExecArray =
   FORK_REPO_REGEX.exec(issue?.body || "") ||
@@ -62,6 +63,8 @@ async function updateFile(
     );
 
     const newBase65Content = createNewBase65Content(fileBase64Content, options);
+
+    await updateFileContent(thisOwner, repo, options.file, fileSha, fileBase64Content);
 
     console.log(
       JSON.stringify(
@@ -158,4 +161,39 @@ async function getFileShaAndContent(owner: string, repo: string, file: string) {
     fileSha,
     fileBase64Content,
   };
+}
+
+async function updateFileContent(
+  owner: string,
+  repo: string,
+  file: string,
+  sha: string,
+  content: string
+) {
+  const response = await octokit.request(
+    `PUT /repos/{owner}/{repo}/contents/{path}`,
+    {
+      owner,
+      repo,
+      path: file,
+      message: generateCommitMessage(),
+      content,
+      sha,
+      branch: JUMP2HEADER_BRANCH,
+    }
+  );
+
+  console.log(
+    `\n>>>>>>>>>>\n PUT /repos/${owner}/${repo}/content response: ${JSON.stringify(
+      response,
+      undefined,
+      2
+    )} \n<<<<<<<<<<\n`
+  );
+
+  return response;
+}
+
+function generateCommitMessage() {
+  return "docs: add links to top with jump2header";
 }
