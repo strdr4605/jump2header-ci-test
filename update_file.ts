@@ -46,7 +46,66 @@ async function updateFile(
   repo: string,
   jump2headerArgs: string
 ) {
-  const options = (yargsParser(jump2headerArgs, {
+  const options = getJump2headerOptions(jump2headerArgs);
+
+  console.log(`Start update ${options.file} of ${thisOwner}/${repo}`);
+  if (!thisOwner || !repo) {
+    console.log("No owner or repo", thisOwner, repo);
+    return;
+  }
+
+  try {
+    const { fileSha, fileBase64Content } = await getFileShaAndContent(
+      thisOwner,
+      repo,
+      options.file
+    );
+
+    const newBase65Content = createNewBase65Content(fileBase64Content, options);
+
+    console.log(
+      JSON.stringify(
+        {
+          options,
+          fileSha,
+          fileBase64Content,
+          newBase65Content,
+        },
+        undefined,
+        2
+      )
+    );
+  } catch (e) {
+    console.log(
+      `\n>>>>>>>>>>\n GET /repos/${thisOwner}/${repo}/content ERROR: ${JSON.stringify(
+        e,
+        undefined,
+        2
+      )} \n<<<<<<<<<<\n`
+    );
+  }
+}
+
+function createNewBase65Content(fileBase64Content: string, options: CliArgv) {
+  const utf8Content = Buffer.from(fileBase64Content, "base64").toString(
+    "utf-8"
+  );
+
+  console.log("writing to README.md");
+
+  console.log(utf8Content);
+
+  const newUtf8Content = createNewFileContent(utf8Content, options);
+
+  const newBase65Content = Buffer.from(newUtf8Content, "utf-8").toString(
+    "base64"
+  );
+
+  return newBase65Content;
+}
+
+function getJump2headerOptions(args: string) {
+  return (yargsParser(args, {
     alias: {
       file: ["f"],
       slug: ["s", "header", "h"],
@@ -65,52 +124,38 @@ async function updateFile(
     number: ["maxLevel", "emoji"],
     string: ["slug", "text", "start", "end"],
   }) as unknown) as CliArgv;
+}
 
-  console.log(`Start update ${options.file} of ${thisOwner}/${repo}`);
-  if (!thisOwner || !repo) {
-    console.log("No owner or repo", thisOwner, repo);
-    return;
+async function getFileShaAndContent(owner: string, repo: string, file: string) {
+  const response = await octokit.request(
+    `GET /repos/{owner}/{repo}/contents/{path}`,
+    {
+      owner,
+      repo,
+      path: file,
+    }
+  );
+
+  console.log(
+    `\n>>>>>>>>>>\n GET /repos/${owner}/${repo}/content response: ${JSON.stringify(
+      response,
+      undefined,
+      2
+    )} \n<<<<<<<<<<\n`
+  );
+
+  if (Array.isArray(response.data) || response.data.type !== "file") {
+    throw new Error("Wrong path, wanted path to .md file");
   }
 
-  try {
-    const response = await octokit.request(
-      `GET /repos/{owner}/{repo}/contents/${options.file}`,
-      {
-        owner: thisOwner,
-        repo,
-      }
-    );
+  const fileSha: string = response.data.sha;
 
-    console.log(
-      `\n>>>>>>>>>>\n GET /repos/${thisOwner}/${repo}/content response: ${JSON.stringify(
-        response,
-        undefined,
-        2
-      )} \n<<<<<<<<<<\n`
-    );
+  // TODO: type is file but content is not avaiblable it typescript
+  // @ts-ignore
+  const fileBase64Content: string = response.data.content;
 
-    const fileSha = response.data.sha;
-    const fileBase64Content = response.data.content;
-
-    const utf8Content = Buffer.from(fileBase64Content, "base64").toString("utf-8");
-
-    console.log("writing to README.md");
-
-    console.log(utf8Content);
-
-    const newUtf8Content = createNewFileContent(utf8Content, options);
-
-    const newBase65Content = Buffer.from(newUtf8Content, "utf-8").toString("base64");
-
-    console.log(JSON.stringify({ options, fileSha, fileBase64Content, newUtf8Content, newBase65Content }, undefined, 2));
-
-  } catch (e) {
-    console.log(
-      `\n>>>>>>>>>>\n GET /repos/${thisOwner}/${repo}/content ERROR: ${JSON.stringify(
-        e,
-        undefined,
-        2
-      )} \n<<<<<<<<<<\n`
-    );
-  }
+  return {
+    fileSha,
+    fileBase64Content,
+  };
 }

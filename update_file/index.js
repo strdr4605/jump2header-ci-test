@@ -5638,58 +5638,90 @@ console.log(jump2headerArgs);
 updateFile(((_a = github_1.context.payload.repository) === null || _a === void 0 ? void 0 : _a.owner.login) || "strdr4605", repo, jump2headerArgs);
 function updateFile(thisOwner, repo, jump2headerArgs) {
     return __awaiter(this, void 0, void 0, function () {
-        var options, response, fileSha, fileBase64Content, utf8Content, newUtf8Content, newBase65Content, e_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
+        var options, _a, fileSha, fileBase64Content, newBase65Content, e_1;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
                 case 0:
-                    options = yargs_parser_1.default(jump2headerArgs, {
-                        alias: {
-                            file: ["f"],
-                            slug: ["s", "header", "h"],
-                            position: ["p"],
-                            text: ["t"],
-                            maxLevel: ["l", "max-level"],
-                            emoji: ["e"],
-                        },
-                        default: {
-                            file: "README.md",
-                            position: "header",
-                            maxLevel: 6,
-                            emoji: 1,
-                        },
-                        boolean: ["silent"],
-                        number: ["maxLevel", "emoji"],
-                        string: ["slug", "text", "start", "end"],
-                    });
+                    options = getJump2headerOptions(jump2headerArgs);
                     console.log("Start update " + options.file + " of " + thisOwner + "/" + repo);
                     if (!thisOwner || !repo) {
                         console.log("No owner or repo", thisOwner, repo);
                         return [2 /*return*/];
                     }
-                    _a.label = 1;
+                    _b.label = 1;
                 case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, octokit.request("GET /repos/{owner}/{repo}/contents/" + options.file, {
-                            owner: thisOwner,
-                            repo: repo,
-                        })];
+                    _b.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, getFileShaAndContent(thisOwner, repo, options.file)];
                 case 2:
-                    response = _a.sent();
-                    console.log("\n>>>>>>>>>>\n GET /repos/" + thisOwner + "/" + repo + "/content response: " + JSON.stringify(response, undefined, 2) + " \n<<<<<<<<<<\n");
-                    fileSha = response.data.sha;
-                    fileBase64Content = response.data.content;
-                    utf8Content = Buffer.from(fileBase64Content, "base64").toString("utf-8");
-                    console.log("writing to README.md");
-                    console.log(utf8Content);
-                    newUtf8Content = transform_1.createNewFileContent(utf8Content, options);
-                    newBase65Content = Buffer.from(newUtf8Content, "utf-8").toString("base64");
-                    console.log(JSON.stringify({ options: options, fileSha: fileSha, fileBase64Content: fileBase64Content, newUtf8Content: newUtf8Content, newBase65Content: newBase65Content }, undefined, 2));
+                    _a = _b.sent(), fileSha = _a.fileSha, fileBase64Content = _a.fileBase64Content;
+                    newBase65Content = createNewBase65Content(fileBase64Content, options);
+                    console.log(JSON.stringify({
+                        options: options,
+                        fileSha: fileSha,
+                        fileBase64Content: fileBase64Content,
+                        newBase65Content: newBase65Content,
+                    }, undefined, 2));
                     return [3 /*break*/, 4];
                 case 3:
-                    e_1 = _a.sent();
+                    e_1 = _b.sent();
                     console.log("\n>>>>>>>>>>\n GET /repos/" + thisOwner + "/" + repo + "/content ERROR: " + JSON.stringify(e_1, undefined, 2) + " \n<<<<<<<<<<\n");
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function createNewBase65Content(fileBase64Content, options) {
+    var utf8Content = Buffer.from(fileBase64Content, "base64").toString("utf-8");
+    console.log("writing to README.md");
+    console.log(utf8Content);
+    var newUtf8Content = transform_1.createNewFileContent(utf8Content, options);
+    var newBase65Content = Buffer.from(newUtf8Content, "utf-8").toString("base64");
+    return newBase65Content;
+}
+function getJump2headerOptions(args) {
+    return yargs_parser_1.default(args, {
+        alias: {
+            file: ["f"],
+            slug: ["s", "header", "h"],
+            position: ["p"],
+            text: ["t"],
+            maxLevel: ["l", "max-level"],
+            emoji: ["e"],
+        },
+        default: {
+            file: "README.md",
+            position: "header",
+            maxLevel: 6,
+            emoji: 1,
+        },
+        boolean: ["silent"],
+        number: ["maxLevel", "emoji"],
+        string: ["slug", "text", "start", "end"],
+    });
+}
+function getFileShaAndContent(owner, repo, file) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response, fileSha, fileBase64Content;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, octokit.request("GET /repos/{owner}/{repo}/contents/{path}", {
+                        owner: owner,
+                        repo: repo,
+                        path: file,
+                    })];
+                case 1:
+                    response = _a.sent();
+                    console.log("\n>>>>>>>>>>\n GET /repos/" + owner + "/" + repo + "/content response: " + JSON.stringify(response, undefined, 2) + " \n<<<<<<<<<<\n");
+                    if (Array.isArray(response.data) || response.data.type !== "file") {
+                        throw new Error("Wrong path, wanted path to .md file");
+                    }
+                    fileSha = response.data.sha;
+                    fileBase64Content = response.data.content;
+                    return [2 /*return*/, {
+                            fileSha: fileSha,
+                            fileBase64Content: fileBase64Content,
+                        }];
             }
         });
     });
