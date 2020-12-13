@@ -1,4 +1,4 @@
-import { writeFileSync } from "fs"
+import { writeFileSync } from "fs";
 import { context, getOctokit } from "@actions/github";
 import { WebhookPayload } from "@actions/github/lib/interfaces";
 import execa from "execa";
@@ -60,6 +60,14 @@ async function updateFile(
       }
     );
 
+    console.log(
+      `\n>>>>>>>>>>\n POST /repos/${thisOwner}/${repo}/content response: ${JSON.stringify(
+        response,
+        undefined,
+        2
+      )} \n<<<<<<<<<<\n`
+    );
+
     const fileSha = response.data.sha;
     const fileBase64Content = response.data.content;
 
@@ -69,21 +77,19 @@ async function updateFile(
 
     const utf8Content = buff.toString("utf-8");
 
-    console.log("writing to temp")
+    console.log("writing to README.md");
 
-    writeFileSync("temp", utf8Content);
+    console.log(utf8Content);
+
+    writeFileSync("README.md", utf8Content);
 
     const { stdout } = await execa("ls");
 
     console.log(`\n${stdout}\n`);
 
-    console.log(
-      `\n>>>>>>>>>>\n POST /repos/${thisOwner}/${repo}/content response: ${JSON.stringify(
-        response,
-        undefined,
-        2
-      )} \n<<<<<<<<<<\n`
-    );
+    const { stdout: stdout2 } = await execa("cat README.md");
+
+    console.log(`\n${stdout2}\n`);
   } catch (e) {
     console.log(
       `\n>>>>>>>>>>\n POST /repos/${thisOwner}/${repo}/content ERROR: ${JSON.stringify(

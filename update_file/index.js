@@ -7919,7 +7919,7 @@ console.log(jump2headerArgs);
 updateFile(((_a = github_1.context.payload.repository) === null || _a === void 0 ? void 0 : _a.owner.login) || "strdr4605", repo, jump2headerArgs);
 function updateFile(thisOwner, repo, jump2headerArgs) {
     return __awaiter(this, void 0, void 0, function () {
-        var response, fileSha, fileBase64Content, buff, utf8Content, stdout, e_1;
+        var response, fileSha, fileBase64Content, buff, utf8Content, stdout, stdout2, e_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -7930,31 +7930,36 @@ function updateFile(thisOwner, repo, jump2headerArgs) {
                     }
                     _a.label = 1;
                 case 1:
-                    _a.trys.push([1, 4, , 5]);
+                    _a.trys.push([1, 5, , 6]);
                     return [4 /*yield*/, octokit.request("GET /repos/{owner}/{repo}/contents/README.md", {
                             owner: thisOwner,
                             repo: repo,
                         })];
                 case 2:
                     response = _a.sent();
+                    console.log("\n>>>>>>>>>>\n POST /repos/" + thisOwner + "/" + repo + "/content response: " + JSON.stringify(response, undefined, 2) + " \n<<<<<<<<<<\n");
                     fileSha = response.data.sha;
                     fileBase64Content = response.data.content;
                     console.log({ fileSha: fileSha, fileBase64Content: fileBase64Content });
                     buff = Buffer.from(fileBase64Content, "base64");
                     utf8Content = buff.toString("utf-8");
-                    console.log("writing to temp");
-                    fs_1.writeFileSync("temp", utf8Content);
+                    console.log("writing to README.md");
+                    console.log(utf8Content);
+                    fs_1.writeFileSync("README.md", utf8Content);
                     return [4 /*yield*/, execa_1.default("ls")];
                 case 3:
                     stdout = (_a.sent()).stdout;
                     console.log("\n" + stdout + "\n");
-                    console.log("\n>>>>>>>>>>\n POST /repos/" + thisOwner + "/" + repo + "/content response: " + JSON.stringify(response, undefined, 2) + " \n<<<<<<<<<<\n");
-                    return [3 /*break*/, 5];
+                    return [4 /*yield*/, execa_1.default("cat README.md")];
                 case 4:
+                    stdout2 = (_a.sent()).stdout;
+                    console.log("\n" + stdout2 + "\n");
+                    return [3 /*break*/, 6];
+                case 5:
                     e_1 = _a.sent();
                     console.log("\n>>>>>>>>>>\n POST /repos/" + thisOwner + "/" + repo + "/content ERROR: " + JSON.stringify(e_1, undefined, 2) + " \n<<<<<<<<<<\n");
-                    return [3 /*break*/, 5];
-                case 5: return [2 /*return*/];
+                    return [3 /*break*/, 6];
+                case 6: return [2 /*return*/];
             }
         });
     });
