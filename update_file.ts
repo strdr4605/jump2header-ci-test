@@ -177,7 +177,7 @@ async function updateFileContent(
       repo,
       path: file,
       message: generateCommitMessage(),
-      content,
+      content: "IyBUTVBTCg==",
       sha,
       branch: JUMP2HEADER_BRANCH,
     }
