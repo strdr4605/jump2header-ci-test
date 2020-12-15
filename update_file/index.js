@@ -5740,9 +5740,8 @@ function updateFileContent(owner, repo, file, sha, content) {
                         repo: repo,
                         path: file,
                         message: generateCommitMessage(),
-                        content: "IyBUTVBTCg==",
+                        content: "IyBEcmFnb3M=",
                         sha: sha,
-                        branch: JUMP2HEADER_BRANCH,
                     })];
                 case 1:
                     response = _a.sent();
